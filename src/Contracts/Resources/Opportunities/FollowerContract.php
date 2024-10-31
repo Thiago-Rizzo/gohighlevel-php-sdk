@@ -9,28 +9,28 @@ interface FollowerContract
     /**
      * Add Followers
      *
-     * @param  array<string>  $followers
-     * @return array<string>|string
+     * @param  array  $followers
+     * @return array|string
      *
      * @see https://highlevel.stoplight.io/docs/integrations/a4853ad9d0a48-add-followers
      */
-    public function add(string $id, array $followers): array|string;
+    public function add(string $id, array $followers);
 
     /**
      * Delete Followers
      *
-     * @return array<string>|string
+     * @return array|string
      *
      * @see https://highlevel.stoplight.io/docs/integrations/0412c261ca64b-remove-followers
      */
-    public function remove(string $id): array|string;
+    public function remove(string $id);
 
     /**
      * Delete Followers
      *
-     * @return array<string>|string
+     * @return array|string
      *
      * @see https://highlevel.stoplight.io/docs/integrations/0412c261ca64b-remove-followers
      */
-    public function delete(string $id): array|string;
+    public function delete(string $id);
 }

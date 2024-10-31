@@ -15,7 +15,7 @@ interface MetaInformationContract extends ArrayAccess
      */
     public function toArray(): array;
 
-    public function offsetExists(mixed $offset): bool;
+    public function offsetExists($offset): bool;
 
     /**
      * @template TOffsetKey of key-of<TArray>
@@ -23,7 +23,7 @@ interface MetaInformationContract extends ArrayAccess
      * @param  TOffsetKey  $offset
      * @return TArray[TOffsetKey]
      */
-    public function offsetGet(mixed $offset): mixed;
+    public function offsetGet($offset);
 
     /**
      * @template TOffsetKey of key-of<TArray>
@@ -31,12 +31,12 @@ interface MetaInformationContract extends ArrayAccess
      * @param  TOffsetKey  $offset
      * @param  TArray[TOffsetKey] $value
      */
-    public function offsetSet(mixed $offset, mixed $value): never;
+    public function offsetSet($offset, $value): void;
 
     /**
      * @template TOffsetKey of key-of<TArray>
      *
      * @param  TOffsetKey  $offset
      */
-    public function offsetUnset(mixed $offset): never;
+    public function offsetUnset( $offset): void;
 }

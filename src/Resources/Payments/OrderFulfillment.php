@@ -13,7 +13,7 @@ class OrderFulfillment implements OrderFulfillmentContract
     /**
      * {@inheritDoc}
      */
-    public function create(string $orderId, array $params): array|string
+    public function create(string $orderId, array $params)
     {
         $payload = Payload::post("payments/orders/{$orderId}/fulfillments", $params);
 
@@ -23,7 +23,7 @@ class OrderFulfillment implements OrderFulfillmentContract
     /**
      * {@inheritDoc}
      */
-    public function list(string $orderId, array $params): array|string
+    public function list(string $orderId, array $params)
     {
         $payload = Payload::get("payments/orders/{$orderId}/fulfillments", $params);
 

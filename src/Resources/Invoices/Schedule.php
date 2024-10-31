@@ -12,14 +12,14 @@ final class Schedule implements ScheduleContract
 {
     use Transportable;
 
-    public function create(array $params): array|string
+    public function create(array $params)
     {
         $payload = Payload::post('invoices/schedule/', $params);
 
         return $this->transporter->requestObject($payload)->data();
     }
 
-    public function list(string $altId, string $altType, string $limit, string $offset, array $params = []): array|string
+    public function list(string $altId, string $altType, string $limit, string $offset, array $params = [])
     {
         $params['altId'] = $altId;
         $params['altType'] = $altType;
@@ -31,7 +31,7 @@ final class Schedule implements ScheduleContract
 
     }
 
-    public function get(string $scheduleId, string $altId, string $altType): array|string
+    public function get(string $scheduleId, string $altId, string $altType)
     {
         $params['altId'] = $altId;
         $params['altType'] = $altType;
@@ -40,7 +40,7 @@ final class Schedule implements ScheduleContract
         return $this->transporter->requestObject($payload)->data();
     }
 
-    public function update(string $scheduleId, string $altId, string $altType, array $params = []): array|string
+    public function update(string $scheduleId, string $altId, string $altType, array $params = [])
     {
         $params['altId'] = $altId;
         $params['altType'] = $altType;
@@ -49,14 +49,14 @@ final class Schedule implements ScheduleContract
         return $this->transporter->requestObject($payload)->data();
     }
 
-    public function delete(string $scheduleId, string $altId, string $altType): array|string
+    public function delete(string $scheduleId, string $altId, string $altType)
     {
         $payload = Payload::deleteFromUri("invoices/schedule/{$scheduleId}?altId={$altId}&altType={$altType}");
 
         return $this->transporter->requestObject($payload)->data();
     }
 
-    public function invoice(string $scheduleId, string $altId, string $altType, array $params): array|string
+    public function invoice(string $scheduleId, string $altId, string $altType, array $params)
     {
         $params['altId'] = $altId;
         $params['altType'] = $altType;
@@ -65,7 +65,7 @@ final class Schedule implements ScheduleContract
         return $this->transporter->requestObject($payload)->data();
     }
 
-    public function autoPayment(string $scheduleId, string $altId, string $altType, array $params): array|string
+    public function autoPayment(string $scheduleId, string $altId, string $altType, array $params)
     {
         $params['altId'] = $altId;
         $params['altType'] = $altType;
@@ -74,7 +74,7 @@ final class Schedule implements ScheduleContract
         return $this->transporter->requestObject($payload)->data();
     }
 
-    public function cancel(string $scheduleId, string $altId, string $altType): array|string
+    public function cancel(string $scheduleId, string $altId, string $altType)
     {
         $params['altId'] = $altId;
         $params['altType'] = $altType;

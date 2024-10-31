@@ -15,7 +15,7 @@ final class Task implements TaskContract
     /**
      * {@inheritDoc}
      */
-    public function list(string $contactId): string|array
+    public function list(string $contactId)
     {
         $payload = Payload::get("contacts/{$contactId}/tasks");
 
@@ -25,7 +25,7 @@ final class Task implements TaskContract
     /**
      * {@inheritDoc}
      */
-    public function create(string $contactId, array $params): string|array
+    public function create(string $contactId, array $params)
     {
         $payload = Payload::create("contacts/{$contactId}/tasks", $params);
 
@@ -35,7 +35,7 @@ final class Task implements TaskContract
     /**
      * {@inheritDoc}
      */
-    public function get(string $contactId, string $taskId): string|array
+    public function get(string $contactId, string $taskId)
     {
         $payload = Payload::get("contacts/{$contactId}/tasks/{$taskId}");
 
@@ -45,7 +45,7 @@ final class Task implements TaskContract
     /**
      * {@inheritDoc}
      */
-    public function update(string $contactId, string $taskId, array $params): string|array
+    public function update(string $contactId, string $taskId, array $params)
     {
         $payload = Payload::put("contacts/{$contactId}/tasks/{$taskId}", $params);
 
@@ -55,7 +55,7 @@ final class Task implements TaskContract
     /**
      * {@inheritDoc}
      */
-    public function delete(string $contactId, string $taskId): string|array
+    public function delete(string $contactId, string $taskId)
     {
         $payload = Payload::delete("contacts/{$contactId}/tasks/", $taskId);
 
@@ -65,7 +65,7 @@ final class Task implements TaskContract
     /**
      * {@inheritDoc}
      */
-    public function completed(string $contactId, string $taskId, bool $completed): string|array
+    public function completed(string $contactId, string $taskId, bool $completed)
     {
         $payload = Payload::put("contacts/{$contactId}/tasks/{$taskId}/completed", [
             'completed' => $completed,

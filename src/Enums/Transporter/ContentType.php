@@ -7,10 +7,10 @@ namespace MusheAbdulHakim\GoHighLevel\Enums\Transporter;
 /**
  * @internal
  */
-enum ContentType: string
+class ContentType
 {
-    case JSON = 'application/json';
-    case MULTIPART = 'multipart/form-data';
-    case TEXT_PLAIN = 'text/plain';
-    case URL_ENCODE = 'application/x-www-form-urlencoded';
+    const JSON = 'application/json';
+    const MULTIPART = 'multipart/form-data';
+    const TEXT_PLAIN = 'text/plain';
+    const URL_ENCODE = 'application/x-www-form-urlencoded';
 }

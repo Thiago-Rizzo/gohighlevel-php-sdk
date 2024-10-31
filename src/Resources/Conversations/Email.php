@@ -15,14 +15,14 @@ final class Email implements EmailContract
     /**
      * {@inheritDoc}
      */
-    public function get(string $id): array|string
+    public function get(string $id)
     {
         $payload = Payload::get("conversations/messages/email/{$id}");
 
         return $this->transporter->requestObject($payload)->data();
     }
 
-    public function cancelSchedule(string $emailMessageId): array|string
+    public function cancelSchedule(string $emailMessageId)
     {
         $payload = Payload::deleteFromUri("conversations/messages/email/{$emailMessageId}/schedule");
 

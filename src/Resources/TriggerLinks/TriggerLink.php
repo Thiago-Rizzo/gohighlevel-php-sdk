@@ -12,21 +12,21 @@ final class TriggerLink implements TriggerLinkContract
 {
     use Transportable;
 
-    public function update(string $linkId, array $params): array|string
+    public function update(string $linkId, array $params)
     {
         $payload = Payload::put("links/{$linkId}", $params);
 
         return $this->transporter->requestObject($payload)->data();
     }
 
-    public function delete(string $linkId): array|string
+    public function delete(string $linkId)
     {
         $payload = Payload::delete('links/', $linkId);
 
         return $this->transporter->requestObject($payload)->data();
     }
 
-    public function get(string $locationId): array|string
+    public function get(string $locationId)
     {
         $params['locationId'] = $locationId;
         $payload = Payload::get('links/', $params);
@@ -35,7 +35,7 @@ final class TriggerLink implements TriggerLinkContract
 
     }
 
-    public function create(array $params): array|string
+    public function create(array $params)
     {
         $payload = Payload::post('links/', $params);
 

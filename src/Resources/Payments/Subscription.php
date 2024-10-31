@@ -13,7 +13,7 @@ class Subscription implements SubscriptionContract
     /**
      * {@inheritDoc}
      */
-    public function list(string $altId, string $altType, array $params = []): array|string
+    public function list(string $altId, string $altType, array $params = [])
     {
         $params['altId'] = $altId;
         $params['altType'] = $altType;
@@ -25,7 +25,7 @@ class Subscription implements SubscriptionContract
     /**
      * {@inheritDoc}
      */
-    public function get(string $subscriptionId, string $altId, string $altType, array $params = []): array|string
+    public function get(string $subscriptionId, string $altId, string $altType, array $params = [])
     {
         $params['subscriptionId'] = $subscriptionId;
         $params['altId'] = $altId;

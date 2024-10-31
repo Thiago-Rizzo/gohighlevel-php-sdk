@@ -21,7 +21,7 @@ final class Conversation implements ConversationContract
     /**
      * {@inheritDoc}
      */
-    public function get(string $conversationId): array|string
+    public function get(string $conversationId)
     {
         $payload = Payload::get("conversations/{$conversationId}");
 
@@ -31,7 +31,7 @@ final class Conversation implements ConversationContract
     /**
      * {@inheritDoc}
      */
-    public function update(string $conversationId, array $params): array|string
+    public function update(string $conversationId, array $params)
     {
         $payload = Payload::put("conversations/{$conversationId}", $params);
 
@@ -41,7 +41,7 @@ final class Conversation implements ConversationContract
     /**
      * {@inheritDoc}
      */
-    public function delete(string $conversationId): array|string
+    public function delete(string $conversationId)
     {
         $payload = Payload::delete('conversations', $conversationId);
 
@@ -51,7 +51,7 @@ final class Conversation implements ConversationContract
     /**
      * {@inheritDoc}
      */
-    public function create(array $params): array|string
+    public function create(array $params)
     {
         $payload = Payload::create('conversations', $params);
 

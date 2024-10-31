@@ -15,7 +15,7 @@ final class Appointment implements AppointmentContract
     /**
      * {@inheritDoc}
      */
-    public function contacts(string $contactId): string|array
+    public function contacts(string $contactId)
     {
         $payload = Payload::get("contacts/{$contactId}/appointments");
 

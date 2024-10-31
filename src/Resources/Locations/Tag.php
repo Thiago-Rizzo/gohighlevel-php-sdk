@@ -15,7 +15,7 @@ class Tag implements TagContract
     /**
      * {@inheritDoc}
      */
-    public function lists(string $locationId): array|string
+    public function lists(string $locationId)
     {
         $payload = Payload::get("locations/{$locationId}/tags");
 
@@ -25,7 +25,7 @@ class Tag implements TagContract
     /**
      * {@inheritDoc}
      */
-    public function create(string $locationId, array $params): array|string
+    public function create(string $locationId, array $params)
     {
         $payload = Payload::create("locations/{$locationId}/tags", $params);
 
@@ -35,7 +35,7 @@ class Tag implements TagContract
     /**
      * {@inheritDoc}
      */
-    public function get(string $locationId, string $tagId): array|string
+    public function get(string $locationId, string $tagId)
     {
         $payload = Payload::get("locations/{$locationId}/tags/{$tagId}");
 
@@ -45,7 +45,7 @@ class Tag implements TagContract
     /**
      * {@inheritDoc}
      */
-    public function update(string $locationId, string $tagId, array $params): array|string
+    public function update(string $locationId, string $tagId, array $params)
     {
         $payload = Payload::put("locations/{$locationId}/tags/{$tagId}", $params);
 
@@ -55,7 +55,7 @@ class Tag implements TagContract
     /**
      * {@inheritDoc}
      */
-    public function delete(string $locationId, string $tagId): array|string
+    public function delete(string $locationId, string $tagId)
     {
         $payload = Payload::delete("locations/{$locationId}/tags", $tagId);
 

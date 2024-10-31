@@ -6,6 +6,7 @@ namespace MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter;
 
 use Http\Discovery\Psr17Factory;
 use Http\Message\MultipartStream\MultipartStreamBuilder;
+use JsonException;
 use MusheAbdulHakim\GoHighLevel\Enums\Transporter\ContentType;
 use MusheAbdulHakim\GoHighLevel\Enums\Transporter\Method;
 use MusheAbdulHakim\GoHighLevel\ValueObjects\ResourceUri;
@@ -15,26 +16,38 @@ use Psr\Http\Message\StreamInterface;
 /**
  * @internal
  */
-final readonly class Payload
+final class Payload
 {
+    private string $contentType;
+    private string $method;
+    private ResourceUri $uri;
+    private array $parameters;
+
     /**
      * Creates a new Request value object.
      *
-     * @param  array<string, mixed>  $parameters
+     * @param string $contentType
+     * @param string $method
+     * @param ResourceUri $uri
+     * @param array $parameters
      */
-    private function __construct(
-        private ContentType $contentType,
-        private Method $method,
-        private ResourceUri $uri,
-        private array $parameters = [],
-    ) {
-        // ..
+    public function __construct(
+        string $contentType,
+        string      $method,
+        ResourceUri $uri,
+        array       $parameters = []
+    )
+    {
+        $this->contentType = $contentType;
+        $this->method = $method;
+        $this->uri = $uri;
+        $this->parameters = $parameters;
     }
 
     /**
      * Creates a new Payload value object from the given parameters.
      *
-     * @param  array<string, mixed>  $parameters
+     * @param array $parameters
      */
     public static function list(string $resource, array $parameters = []): self
     {
@@ -48,7 +61,7 @@ final readonly class Payload
     /**
      * Creates a new Payload value object from the given parameters.
      *
-     * @param  array<string, mixed>  $parameters
+     * @param array $parameters
      */
     public static function retrieve(string $resource, string $id, string $suffix = '', array $parameters = []): self
     {
@@ -62,7 +75,7 @@ final readonly class Payload
     /**
      * Creates a new Payload value object from the given parameters.
      *
-     * @param  array<string, mixed>  $parameters
+     * @param array $parameters
      */
     public static function modify(string $resource, string $id, array $parameters = []): self
     {
@@ -76,7 +89,7 @@ final readonly class Payload
     /**
      * Create new payload that sends a post request
      *
-     * @param  array<string, mixed>  $parameters
+     * @param array $parameters
      */
     public static function post(string $resource, array $parameters = []): self
     {
@@ -90,9 +103,9 @@ final readonly class Payload
     /**
      * Create new custom payload that sends whatever request you choose
      *
-     * @param  array<string, mixed>  $parameters
+     * @param array $parameters
      */
-    public static function custom(Method $method, ContentType $contentType, string $resource, array $parameters = []): self
+    public static function custom(string $method, string $contentType, string $resource, array $parameters = []): self
     {
         $uri = ResourceUri::get($resource);
 
@@ -102,7 +115,7 @@ final readonly class Payload
     /**
      * Creates a new Payload value object from the given parameters.
      *
-     * @param  array<string, mixed>  $parameters
+     * @param array $parameters
      */
     public static function put(string $resource, array $parameters = []): self
     {
@@ -116,7 +129,7 @@ final readonly class Payload
     /**
      * Creates a new Payload value object from the given parameters.
      *
-     * @param  array<string, mixed>  $parameters
+     * @param array $parameters
      */
     public static function patch(string $resource, array $parameters = []): self
     {
@@ -142,7 +155,7 @@ final readonly class Payload
     /**
      * Creates a new Payload value object from the given parameters.
      *
-     * @param  array<string, mixed>  $parameters
+     * @param array $parameters
      */
     public static function create(string $resource, array $parameters): self
     {
@@ -156,7 +169,7 @@ final readonly class Payload
     /**
      * Creates a new Payload value object from the given parameters.
      *
-     * @param  array<string, mixed>  $parameters
+     * @param array $parameters
      */
     public static function upload(string $resource, array $parameters): self
     {
@@ -194,7 +207,7 @@ final readonly class Payload
     /**
      * Create a new payload value object from the given parameters using a get method.
      *
-     * @param  array<string, mixed>  $params
+     * @param array $params
      */
     public static function get(string $resource, array $params = []): self
     {
@@ -208,7 +221,7 @@ final readonly class Payload
     /**
      * Creates a new Psr 7 Request instance.
      *
-     * @throws \JsonException
+     * @throws JsonException
      */
     public function toRequest(BaseUri $baseUri, Headers $headers, QueryParams $queryParams): RequestInterface
     {
@@ -216,15 +229,15 @@ final readonly class Payload
 
         $body = null;
 
-        $uri = $baseUri->toString().$this->uri->toString();
+        $uri = $baseUri->toString() . $this->uri->toString();
 
         $queryParams = $queryParams->toArray();
         if ($this->method === Method::GET) {
-            $queryParams = [...$queryParams, ...$this->parameters];
+            $queryParams = array_merge($queryParams, $this->parameters);
         }
 
         if ($queryParams !== []) {
-            $uri .= '?'.http_build_query($queryParams);
+            $uri .= '?' . http_build_query($queryParams);
         }
 
         $headers = $headers->withContentType($this->contentType);
@@ -233,17 +246,16 @@ final readonly class Payload
             if ($this->contentType === ContentType::MULTIPART) {
                 $streamBuilder = new MultipartStreamBuilder($psr17Factory);
 
-                /** @var array<string, StreamInterface|string|int|float|bool|array<int, string>> $parameters */
                 $parameters = $this->parameters;
 
                 foreach ($parameters as $key => $value) {
                     if (is_int($value) || is_float($value) || is_bool($value)) {
-                        $value = (string) $value;
+                        $value = (string)$value;
                     }
 
                     if (is_array($value)) {
                         foreach ($value as $nestedValue) {
-                            $streamBuilder->addResource($key.'[]', $nestedValue);
+                            $streamBuilder->addResource($key . '[]', $nestedValue);
                         }
 
                         continue;
@@ -254,13 +266,13 @@ final readonly class Payload
 
                 $body = $streamBuilder->build();
 
-                $headers = $headers->withContentType($this->contentType, '; boundary='.$streamBuilder->getBoundary());
+                $headers = $headers->withContentType($this->contentType, '; boundary=' . $streamBuilder->getBoundary());
             } else {
                 $body = $psr17Factory->createStream(json_encode($this->parameters, JSON_THROW_ON_ERROR));
             }
         }
 
-        $request = $psr17Factory->createRequest($this->method->value, $uri);
+        $request = $psr17Factory->createRequest($this->method, $uri);
 
         if ($body instanceof StreamInterface) {
             $request = $request->withBody($body);

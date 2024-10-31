@@ -12,7 +12,7 @@ final class Company implements CompanyContract
 {
     use Transportable;
 
-    public function get(string $companyId): array|string
+    public function get(string $companyId)
     {
         $payload = Payload::get("companies/{$companyId}");
 

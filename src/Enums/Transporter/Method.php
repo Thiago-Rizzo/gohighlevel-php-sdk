@@ -7,11 +7,11 @@ namespace MusheAbdulHakim\GoHighLevel\Enums\Transporter;
 /**
  * @internal
  */
-enum Method: string
+class Method
 {
-    case GET = 'GET';
-    case POST = 'POST';
-    case PUT = 'PUT';
-    case PATCH = 'PATCH';
-    case DELETE = 'DELETE';
+    const GET = 'GET';
+    const POST = 'POST';
+    const PUT = 'PUT';
+    const PATCH = 'PATCH';
+    const DELETE = 'DELETE';
 }

@@ -13,7 +13,7 @@ class Integration implements IntegrationContract
     /**
      * {@inheritDoc}
      */
-    public function create(array $params): array|string
+    public function create(array $params)
     {
         $payload = Payload::create('payments/integrations/provider/whitelabel', $params);
 
@@ -23,7 +23,7 @@ class Integration implements IntegrationContract
     /**
      * {@inheritDoc}
      */
-    public function list(string $altId, string $altType, array $params = []): array|string
+    public function list(string $altId, string $altType, array $params = [])
     {
         $payload = Payload::get('payments/integrations/provider/whitelabel', $params);
 

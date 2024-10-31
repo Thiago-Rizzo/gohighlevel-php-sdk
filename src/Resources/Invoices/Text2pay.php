@@ -12,14 +12,14 @@ final class Text2pay implements Text2payContract
 {
     use Transportable;
 
-    public function create(array $params): array|string
+    public function create(array $params)
     {
         $payload = Payload::post('invoices/text2pay/', $params);
 
         return $this->transporter->requestObject($payload)->data();
     }
 
-    public function update(string $id, array $params): array|string
+    public function update(string $id, array $params)
     {
         $payload = Payload::post("invoices/text2pay/{$id}/", $params);
 

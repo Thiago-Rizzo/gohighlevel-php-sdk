@@ -13,7 +13,7 @@ class CustomProvider implements CustomProviderContract
     /**
      * {@inheritDoc}
      */
-    public function create(string $locationId, array $params = []): array|string
+    public function create(string $locationId, array $params = [])
     {
         $params['locationId'] = $locationId;
         $payload = Payload::create('payments/custom-provider/provider', $params);
@@ -24,7 +24,7 @@ class CustomProvider implements CustomProviderContract
     /**
      * {@inheritDoc}
      */
-    public function delete(string $locationId): array|string
+    public function delete(string $locationId)
     {
         $params['locationId'] = $locationId;
         $payload = Payload::deleteFromUri('payments/custom-provider/provider');
@@ -35,7 +35,7 @@ class CustomProvider implements CustomProviderContract
     /**
      * {@inheritDoc}
      */
-    public function getConfig(string $locationId): array|string
+    public function getConfig(string $locationId)
     {
         $params['locationId'] = $locationId;
         $payload = Payload::get('payments/custom-provider/connect', $params);
@@ -46,7 +46,7 @@ class CustomProvider implements CustomProviderContract
     /**
      * {@inheritDoc}
      */
-    public function createConfig(string $locationId, array $params): array|string
+    public function createConfig(string $locationId, array $params)
     {
         $payload = Payload::post("payments/custom-provider/connect?locationId={$locationId}", $params);
 
@@ -56,7 +56,7 @@ class CustomProvider implements CustomProviderContract
     /**
      * {@inheritDoc}
      */
-    public function deleteConfig(string $locationId, bool $liveMode): array|string
+    public function deleteConfig(string $locationId, bool $liveMode)
     {
         $params['liveMode'] = $liveMode;
         $payload = Payload::post("payments/custom-provider/disconnect?locationId={$locationId}", $params);

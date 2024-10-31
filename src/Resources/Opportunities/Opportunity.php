@@ -14,7 +14,7 @@ class Opportunity implements OpportunityContract
     /**
      * {@inheritDoc}
      */
-    public function get(string $id): array|string
+    public function get(string $id)
     {
         $payload = Payload::get("opportunities/{$id}");
 
@@ -24,7 +24,7 @@ class Opportunity implements OpportunityContract
     /**
      * {@inheritDoc}
      */
-    public function delete(string $id): array|string
+    public function delete(string $id)
     {
         $payload = Payload::delete('opportunities/', $id);
 
@@ -34,7 +34,7 @@ class Opportunity implements OpportunityContract
     /**
      * {@inheritDoc}
      */
-    public function update(string $id, array $params = []): array|string
+    public function update(string $id, array $params = [])
     {
         $payload = Payload::put("opportunities/{$id}", $params);
 
@@ -44,7 +44,7 @@ class Opportunity implements OpportunityContract
     /**
      * {@inheritDoc}
      */
-    public function updateStatus(string $id, string $status): array|string
+    public function updateStatus(string $id, string $status)
     {
         $params['status'] = $status;
         $payload = Payload::put("opportunities/{$id}/status", $params);
@@ -55,7 +55,7 @@ class Opportunity implements OpportunityContract
     /**
      * {@inheritDoc}
      */
-    public function upsert(string $pipelineId, string $locationId, string $contactId, array $params = []): array|string
+    public function upsert(string $pipelineId, string $locationId, string $contactId, array $params = [])
     {
         $payload = Payload::put('opportunities/upsert', $params);
 
@@ -65,7 +65,7 @@ class Opportunity implements OpportunityContract
     /**
      * {@inheritDoc}
      */
-    public function create(array $params = []): array|string
+    public function create(array $params = [])
     {
         $payload = Payload::create('opportunities', $params);
 
@@ -75,7 +75,7 @@ class Opportunity implements OpportunityContract
     /**
      * {@inheritDoc}
      */
-    public function search(string $locationId, array $params = []): array|string
+    public function search(string $locationId, array $params = [])
     {
         $params['location_id'] = $locationId;
         $payload = Payload::get('opportunities/search', $params);
@@ -86,7 +86,7 @@ class Opportunity implements OpportunityContract
     /**
      * {@inheritDoc}
      */
-    public function pipelines(string $locationId): array|string
+    public function pipelines(string $locationId)
     {
         $params['locationId'] = $locationId;
         $payload = Payload::get('opportunities/pipelines', $params);

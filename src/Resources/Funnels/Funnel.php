@@ -13,7 +13,7 @@ final class Funnel implements FunnelContract
 {
     use Transportable;
 
-    public function list(string $locationId, array $params = []): array|string
+    public function list(string $locationId, array $params = [])
     {
         $params['locationId'] = $locationId;
         $payload = Payload::get('funnels/funnel/list/', $params);
@@ -21,7 +21,7 @@ final class Funnel implements FunnelContract
         return $this->transporter->requestObject($payload)->get('funnels');
     }
 
-    public function pages(string $funnelId, string $locationId, int $limit, int $offset, array $params = []): array|string
+    public function pages(string $funnelId, string $locationId, int $limit, int $offset, array $params = [])
     {
         $params['funnelId'] = $funnelId;
         $params['locationId'] = $locationId;

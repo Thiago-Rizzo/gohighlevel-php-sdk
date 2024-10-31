@@ -15,7 +15,7 @@ final class Course implements CourseContract
     /**
      * {@inheritDoc}
      */
-    public function import(string $locationId, string $userId, array $products): array|string
+    public function import(string $locationId, string $userId, array $products)
     {
         $params['locationId'] = $locationId;
         $params['userId'] = $userId;

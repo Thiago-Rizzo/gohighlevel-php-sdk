@@ -15,7 +15,7 @@ final class Tag implements TagContract
     /*
     *@inheritDoc
     */
-    public function create(string $contactId, array|string $tags): string|array
+    public function create(string $contactId, $tags)
     {
         $payload = Payload::create("contacts/{$contactId}/tags", [
             'tags' => $tags,

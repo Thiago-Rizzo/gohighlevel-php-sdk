@@ -12,7 +12,7 @@ final class Campaign implements CampaignContract
 {
     use Transportable;
 
-    public function get(string $locationId, array $params = []): array|string
+    public function get(string $locationId, array $params = [])
     {
         $params['locationId'] = $locationId;
         $payload = Payload::get('campaigns/', $params);

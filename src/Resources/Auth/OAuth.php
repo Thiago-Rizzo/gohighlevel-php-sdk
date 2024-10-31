@@ -9,12 +9,13 @@ use MusheAbdulHakim\GoHighLevel\Enums\Transporter\ContentType;
 use MusheAbdulHakim\GoHighLevel\Enums\Transporter\Method;
 use MusheAbdulHakim\GoHighLevel\Resources\Concerns\Transportable;
 use MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter\Payload;
+use MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter\Response;
 
 final class OAuth implements OAuthContract
 {
     use Transportable;
 
-    public function get(string $client_id, string $client_secret, string $grant_type, array $params = []): \MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter\Response
+    public function get(string $client_id, string $client_secret, string $grant_type, array $params = []): Response
     {
         $params['client_id'] = $client_id;
         $params['client_secret'] = $client_secret;
@@ -24,7 +25,15 @@ final class OAuth implements OAuthContract
         return $this->transporter->requestObject($payload);
     }
 
-    public function AcessFromAgency(string $companyId, string $locationId): array|string
+    /**
+     * @param string $companyId
+     * @param string $locationId
+     * @return array|string
+     * @throws \MusheAbdulHakim\GoHighLevel\Exceptions\ErrorException
+     * @throws \MusheAbdulHakim\GoHighLevel\Exceptions\TransporterException
+     * @throws \MusheAbdulHakim\GoHighLevel\Exceptions\UnserializableResponse
+     */
+    public function AcessFromAgency(string $companyId, string $locationId)
     {
         $params['companyId'] = $companyId;
         $params['locationId'] = $locationId;
@@ -33,7 +42,16 @@ final class OAuth implements OAuthContract
         return $this->transporter->requestObject($payload)->data();
     }
 
-    public function appLocation(string $appId, string $companyId, array $params = []): array|string
+    /**
+     * @param string $appId
+     * @param string $companyId
+     * @param array $params
+     * @return array|string
+     * @throws \MusheAbdulHakim\GoHighLevel\Exceptions\ErrorException
+     * @throws \MusheAbdulHakim\GoHighLevel\Exceptions\TransporterException
+     * @throws \MusheAbdulHakim\GoHighLevel\Exceptions\UnserializableResponse
+     */
+    public function appLocation(string $appId, string $companyId, array $params = [])
     {
         $params['appId'] = $appId;
         $params['companyId'] = $companyId;
@@ -42,7 +60,16 @@ final class OAuth implements OAuthContract
         return $this->transporter->requestObject($payload)->data();
     }
 
-    public function location(string $appId, string $companyId, array $params = []): array|string
+    /**
+     * @param string $appId
+     * @param string $companyId
+     * @param array $params
+     * @return array|string
+     * @throws \MusheAbdulHakim\GoHighLevel\Exceptions\ErrorException
+     * @throws \MusheAbdulHakim\GoHighLevel\Exceptions\TransporterException
+     * @throws \MusheAbdulHakim\GoHighLevel\Exceptions\UnserializableResponse
+     */
+    public function location(string $appId, string $companyId, array $params = [])
     {
         $params['appId'] = $appId;
         $params['companyId'] = $companyId;

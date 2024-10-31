@@ -14,7 +14,7 @@ class Product implements ProductContract
     /**
      * {@inheritDoc}
      */
-    public function get(string $productId, array $params = []): array|string
+    public function get(string $productId, array $params = [])
     {
         $payload = Payload::get("products/{$productId}", $params);
 
@@ -24,7 +24,7 @@ class Product implements ProductContract
     /**
      * {@inheritDoc}
      */
-    public function delete(string $productId, array $params = []): array|string
+    public function delete(string $productId, array $params = [])
     {
         $payload = Payload::deleteFromUri("products/{$productId}");
 
@@ -34,7 +34,7 @@ class Product implements ProductContract
     /**
      * {@inheritDoc}
      */
-    public function update(string $productId, array $params = []): array|string
+    public function update(string $productId, array $params = [])
     {
         $payload = Payload::put("products/{$productId}", $params);
 
@@ -44,7 +44,7 @@ class Product implements ProductContract
     /**
      * {@inheritDoc}
      */
-    public function create(array $params = []): array|string
+    public function create(array $params = [])
     {
         $payload = Payload::create('products/', $params);
 
@@ -54,7 +54,7 @@ class Product implements ProductContract
     /**
      * {@inheritDoc}
      */
-    public function list(string $locationId, array $params = []): array|string
+    public function list(string $locationId, array $params = [])
     {
         $params['locationId'] = $locationId;
         $payload = Payload::get('products/', $params);

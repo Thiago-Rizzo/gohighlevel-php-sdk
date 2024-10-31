@@ -25,19 +25,34 @@ use Psr\Http\Message\ResponseInterface;
 /**
  * @internal
  */
-final readonly class HttpTransporter implements TransporterContract
+final class HttpTransporter implements TransporterContract
 {
+    private ClientInterface $client;
+
+    private BaseUri $baseUri;
+
+    private Headers $headers;
+
+    private QueryParams $queryParams;
+
+    private Closure $streamHandler;
+
     /**
      * Creates a new Http Transporter instance.
      */
     public function __construct(
-        private ClientInterface $client,
-        private BaseUri $baseUri,
-        private Headers $headers,
-        private QueryParams $queryParams,
-        private Closure $streamHandler,
-    ) {
-        // ..
+        ClientInterface $client,
+        BaseUri         $baseUri,
+        Headers         $headers,
+        QueryParams     $queryParams,
+        Closure         $streamHandler
+    )
+    {
+        $this->client = $client;
+        $this->baseUri = $baseUri;
+        $this->headers = $headers;
+        $this->queryParams = $queryParams;
+        $this->streamHandler = $streamHandler;
     }
 
     /**
@@ -54,7 +69,7 @@ final readonly class HttpTransporter implements TransporterContract
     {
         $request = $payload->toRequest($this->baseUri, $this->headers, $this->queryParams);
 
-        $response = $this->sendRequest(fn (): ResponseInterface => $this->client->sendRequest($request));
+        $response = $this->sendRequest(fn(): ResponseInterface => $this->client->sendRequest($request));
 
         if ($response->getStatusCode() === 404) {
             throw new RequestException('404 Error. Please check the endpoint', $request, $response);
@@ -62,7 +77,7 @@ final readonly class HttpTransporter implements TransporterContract
 
         $contents = $response->getBody()->getContents();
 
-        if (str_contains($response->getHeaderLine('Content-Type'), ContentType::TEXT_PLAIN->value)) {
+        if (str_contains($response->getHeaderLine('Content-Type'), ContentType::TEXT_PLAIN)) {
             return Response::from($contents, $response->getHeaders());
         }
 
@@ -70,7 +85,7 @@ final readonly class HttpTransporter implements TransporterContract
 
         try {
             /** @var array{error?: array{message: string, type: string, code: string}} $data */
-            $data = json_decode($contents, true, flags: JSON_THROW_ON_ERROR);
+            $data = json_decode($contents, true, JSON_THROW_ON_ERROR);
         } catch (JsonException $jsonException) {
             throw new UnserializableResponse($jsonException);
         }
@@ -85,7 +100,7 @@ final readonly class HttpTransporter implements TransporterContract
     {
         $request = $payload->toRequest($this->baseUri, $this->headers, $this->queryParams);
 
-        $response = $this->sendRequest(fn (): ResponseInterface => $this->client->sendRequest($request));
+        $response = $this->sendRequest(fn(): ResponseInterface => $this->client->sendRequest($request));
 
         $contents = $response->getBody()->getContents();
 
@@ -101,7 +116,7 @@ final readonly class HttpTransporter implements TransporterContract
     {
         $request = $payload->toRequest($this->baseUri, $this->headers, $this->queryParams);
 
-        $response = $this->sendRequest(fn () => ($this->streamHandler)($request));
+        $response = $this->sendRequest(fn() => ($this->streamHandler)($request));
 
         $this->throwIfJsonError($response, $response);
 
@@ -121,13 +136,20 @@ final readonly class HttpTransporter implements TransporterContract
         }
     }
 
-    private function throwIfJsonError(ResponseInterface $response, string|ResponseInterface $contents): void
+    /**
+     * @param ResponseInterface $response
+     * @param string|ResponseInterface $contents
+     * @return void
+     * @throws ErrorException
+     * @throws UnserializableResponse
+     */
+    private function throwIfJsonError(ResponseInterface $response, $contents): void
     {
         if ($response->getStatusCode() < 400) {
             return;
         }
 
-        if (! str_contains($response->getHeaderLine('Content-Type'), ContentType::JSON->value)) {
+        if (!str_contains($response->getHeaderLine('Content-Type'), ContentType::JSON)) {
             return;
         }
 
@@ -136,8 +158,8 @@ final readonly class HttpTransporter implements TransporterContract
         }
 
         try {
-            /** @var array{error?: array{message: string|array<int, string>, type: string, code: string}} $response */
-            $response = json_decode($contents, true, flags: JSON_THROW_ON_ERROR);
+            /** @var array{error?: array{message: string|array, type: string, code: string}} $response */
+            $response = json_decode($contents, true, JSON_THROW_ON_ERROR);
 
             if (isset($response['error'])) {
                 throw new ErrorException($response);

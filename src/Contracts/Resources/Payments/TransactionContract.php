@@ -11,12 +11,12 @@ interface TransactionContract
      *
      * @see https://highlevel.stoplight.io/docs/integrations/4d127e6508f0a-list-transactions
      */
-    public function list(string $altId, string $altType, array $params = []): array|string;
+    public function list(string $altId, string $altType, array $params = []);
 
     /**
      * Get Transaction by ID
      *
      * @see https://highlevel.stoplight.io/docs/integrations/722e5769feada-get-transaction-by-id
      */
-    public function get(string $transactionId, string $altId, string $altType, array $params = []): array|string;
+    public function get(string $transactionId, string $altId, string $altType, array $params = []);
 }

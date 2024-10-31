@@ -11,19 +11,19 @@ interface LibraryContract
      *
      * @see https://highlevel.stoplight.io/docs/integrations/0a4bf8cac58a9-get-list-of-files
      */
-    public function list(string $altId, string $altType, string $sortBy, string $sortOrder, array $params = []): array|string;
+    public function list(string $altId, string $altType, string $sortBy, string $sortOrder, array $params = []);
 
     /**
      * Upload File into Media Library
      *
      * @see https://highlevel.stoplight.io/docs/integrations/f737851451054-upload-file-into-media-library
      */
-    public function upload(array $params): array|string;
+    public function upload(array $params);
 
     /**
      * Delete File or Folder
      *
      * @see https://highlevel.stoplight.io/docs/integrations/fb48a2a324010-delete-file-or-folder
      */
-    public function delete(string $id, string $altId, string $altType): array|string;
+    public function delete(string $id, string $altId, string $altType);
 }

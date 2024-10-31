@@ -15,7 +15,7 @@ class CustomValue implements CustomValueContract
     /**
      * {@inheritDoc}
      */
-    public function list(string $locationId): array|string
+    public function list(string $locationId)
     {
         $payload = Payload::get("locations/{$locationId}/customValues");
 
@@ -25,7 +25,7 @@ class CustomValue implements CustomValueContract
     /**
      * {@inheritDoc}
      */
-    public function create(string $locationId, array $params): array|string
+    public function create(string $locationId, array $params)
     {
         $payload = Payload::create("locations/{$locationId}/customValues", $params);
 
@@ -35,7 +35,7 @@ class CustomValue implements CustomValueContract
     /**
      * {@inheritDoc}
      */
-    public function get(string $locationId, string $id): array|string
+    public function get(string $locationId, string $id)
     {
         $payload = Payload::get("locations/{$locationId}/customValues/{$id}");
 
@@ -45,7 +45,7 @@ class CustomValue implements CustomValueContract
     /**
      * {@inheritDoc}
      */
-    public function update(string $locationId, string $id, array $params): array|string
+    public function update(string $locationId, string $id, array $params)
     {
         $payload = Payload::put("locations/{$locationId}/customValues/{$id}", $params);
 
@@ -55,7 +55,7 @@ class CustomValue implements CustomValueContract
     /**
      * {@inheritDoc}
      */
-    public function delete(string $locationId, string $id): array|string
+    public function delete(string $locationId, string $id)
     {
         $payload = Payload::delete("locations/{$locationId}/customValues", $id);
 

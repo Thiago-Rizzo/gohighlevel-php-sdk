@@ -12,7 +12,7 @@ class Google implements GoogleSocialPlanner
 {
     use Transportable;
 
-    public function oAuth(string $locationId, string $userId, array $params = []): array|string
+    public function oAuth(string $locationId, string $userId, array $params = [])
     {
         $params['locationId'] = $locationId;
         $params['userId'] = $userId;
@@ -22,14 +22,14 @@ class Google implements GoogleSocialPlanner
 
     }
 
-    public function businessLocations(string $accountId, string $locationId): array|string
+    public function businessLocations(string $accountId, string $locationId)
     {
         $payload = Payload::get("social-media-posting/oauth/$locationId/google/locations/$accountId");
 
         return $this->transporter->requestObject($payload)->data();
     }
 
-    public function setBusinessLocation(string $accountId, string $locationId, array $params = []): array|string
+    public function setBusinessLocation(string $accountId, string $locationId, array $params = [])
     {
         $payload = Payload::post("social-media-posting/oauth/$locationId/google/locations/$accountId", $params);
 

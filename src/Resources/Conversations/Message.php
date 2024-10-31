@@ -15,7 +15,7 @@ final class Message implements MessageContract
     /**
      * {@inheritDoc}
      */
-    public function get(string $id): array|string
+    public function get(string $id)
     {
         $payload = Payload::get("conversations/messages/{$id}");
 
@@ -25,7 +25,7 @@ final class Message implements MessageContract
     /**
      * {@inheritDoc}
      */
-    public function byConversation(string $conversationId, $queryParams = []): array|string
+    public function byConversation(string $conversationId, $queryParams = [])
     {
         $payload = Payload::get("conversations/{$conversationId}/messages", $queryParams);
 
@@ -35,7 +35,7 @@ final class Message implements MessageContract
     /**
      * {@inheritDoc}
      */
-    public function send(string $type, string $contactId, $params = []): array|string
+    public function send(string $type, string $contactId, $params = [])
     {
         $params['type'] = $type;
         $params['contactId'] = $contactId;
@@ -47,7 +47,7 @@ final class Message implements MessageContract
     /**
      * {@inheritDoc}
      */
-    public function inbound(string $type, string $conversationId, string $conversationProviderId, array $params = []): array|string
+    public function inbound(string $type, string $conversationId, string $conversationProviderId, array $params = [])
     {
         $params['type'] = $type;
         $params['conversationId'] = $conversationId;
@@ -60,7 +60,7 @@ final class Message implements MessageContract
     /**
      * {@inheritDoc}
      */
-    public function outbound(string $type, string $conversationId, string $conversationProviderId, array $params = []): array|string
+    public function outbound(string $type, string $conversationId, string $conversationProviderId, array $params = [])
     {
         $params['type'] = $type;
         $params['conversationId'] = $conversationId;
@@ -73,7 +73,7 @@ final class Message implements MessageContract
     /**
      * {@inheritDoc}
      */
-    public function cancel(string $messageId): array|string
+    public function cancel(string $messageId)
     {
         $payload = Payload::deleteFromUri("conversations/messages/{$messageId}/schedule");
 
@@ -83,7 +83,7 @@ final class Message implements MessageContract
     /**
      * {@inheritDoc}
      */
-    public function upload(string $conversationId, string $locationId, array $attachmentUrls): array|string
+    public function upload(string $conversationId, string $locationId, array $attachmentUrls)
     {
         $params = [
             'multipart' => [
@@ -103,7 +103,7 @@ final class Message implements MessageContract
     /**
      * {@inheritDoc}
      */
-    public function updateStatus(string $messageId, $params = []): array|string
+    public function updateStatus(string $messageId, $params = [])
     {
         $payload = Payload::put("conversations/messages/{$messageId}/status");
 
@@ -113,7 +113,7 @@ final class Message implements MessageContract
     /**
      * {@inheritDoc}
      */
-    public function getRecording(string $locationId, string $messageId): array|string
+    public function getRecording(string $locationId, string $messageId)
     {
         $payload = Payload::get("conversations/messages/{$messageId}/locations/{$locationId}/recording");
 
@@ -123,7 +123,7 @@ final class Message implements MessageContract
     /**
      * {@inheritDoc}
      */
-    public function getTranscript(string $locationId, string $messageId): array|string
+    public function getTranscript(string $locationId, string $messageId)
     {
         $payload = Payload::get("conversations/locations/{$locationId}/messages/{$messageId}/transcription");
 
@@ -133,7 +133,7 @@ final class Message implements MessageContract
     /**
      * {@inheritDoc}
      */
-    public function downloadTranscript(string $locationId, string $messageId): array|string
+    public function downloadTranscript(string $locationId, string $messageId)
     {
         $payload = Payload::get("conversations/locations/{$locationId}/messages/{$messageId}/transcription/download");
 

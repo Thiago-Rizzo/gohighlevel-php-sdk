@@ -13,5 +13,5 @@ interface SearchContract
      *
      * @see https://highlevel.stoplight.io/docs/integrations/d45ae3189eea8-search-conversations
      */
-    public function make(string $locationId, $parameters = []): array|string;
+    public function make(string $locationId, $parameters = []);
 }

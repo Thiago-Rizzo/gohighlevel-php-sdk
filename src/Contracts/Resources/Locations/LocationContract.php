@@ -16,7 +16,7 @@ interface LocationContract
      *
      * @see https://highlevel.stoplight.io/docs/integrations/7cfc7963eda7c-create-location
      */
-    public function create(array $params): array|string;
+    public function create(array $params);
 
     /**
      * Get Location
@@ -26,21 +26,21 @@ interface LocationContract
      *
      * @author MusheAbdulHakim
      */
-    public function get(string $locationId): array|string;
+    public function get(string $locationId);
 
     /**
      * Put Location
      *
      * @see https://highlevel.stoplight.io/docs/integrations/cc00a2e3e4d70-put-location
      */
-    public function update(string $locationId, array $params = []): array|string;
+    public function update(string $locationId, array $params = []);
 
     /**
      * Delete Location
      *
      * @see https://highlevel.stoplight.io/docs/integrations/54dd4c281f465-delete-location
      */
-    public function delete(string $locationId, array $params = []): array|string;
+    public function delete(string $locationId, array $params = []);
 
     public function tag(): TagContract;
 

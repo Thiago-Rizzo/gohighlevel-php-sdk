@@ -15,7 +15,7 @@ class Workflow implements WorkflowsContract
     /**
      * {@inheritDoc}
      */
-    public function get(string $locationId): array|string
+    public function get(string $locationId)
     {
         $params['locationId'] = $locationId;
         $payload = Payload::get('workflows/', $params);

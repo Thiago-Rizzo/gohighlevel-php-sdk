@@ -12,21 +12,21 @@ interface TemplateContract
      *
      * @see https://highlevel.stoplight.io/docs/integrations/7cc0fad9bc3c0-create-template
      */
-    public function create(array $params): array|string;
+    public function create(array $params);
 
     /**
      * List Templates
      *
      * @see https://highlevel.stoplight.io/docs/integrations/2840a2faefb4f-list-templates
      */
-    public function list(string $altId, string $altType, string $limit, string $offset, array $params = []): array|string;
+    public function list(string $altId, string $altType, string $limit, string $offset, array $params = []);
 
     /**
      * Get a tempalte
      *
      * @see https://highlevel.stoplight.io/docs/integrations/3bacd8c4310d2-get-an-template
      */
-    public function get(string $templateId, string $altId, string $altType): array|string;
+    public function get(string $templateId, string $altId, string $altType);
 
     /**
      * Update template
@@ -34,12 +34,12 @@ interface TemplateContract
      *
      * @see https://highlevel.stoplight.io/docs/integrations/7467126c48049-update-template
      */
-    public function update(string $templateId, array $params = []): array|string;
+    public function update(string $templateId, array $params = []);
 
     /**
      * Delete Template
      *
      * @see https://highlevel.stoplight.io/docs/integrations/caaab6a02e9ad-delete-template
      */
-    public function delete(string $templateId): array|string;
+    public function delete(string $templateId);
 }

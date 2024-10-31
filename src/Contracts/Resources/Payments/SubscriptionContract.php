@@ -11,12 +11,12 @@ interface SubscriptionContract
      *
      * @see https://highlevel.stoplight.io/docs/integrations/33c965c6cb9da-list-subscriptions
      */
-    public function list(string $altId, string $altType, array $params = []): array|string;
+    public function list(string $altId, string $altType, array $params = []);
 
     /**
      * Get Subscription by ID
      *
      * @see https://highlevel.stoplight.io/docs/integrations/7be164894d54e-get-subscription-by-id
      */
-    public function get(string $subscriptionId, string $altId, string $altType, array $params = []): array|string;
+    public function get(string $subscriptionId, string $altId, string $altType, array $params = []);
 }

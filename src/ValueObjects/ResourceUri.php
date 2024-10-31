@@ -9,14 +9,16 @@ use MusheAbdulHakim\GoHighLevel\Contracts\StringableContract;
 /**
  * @internal
  */
-final readonly class ResourceUri implements StringableContract
+final class ResourceUri implements StringableContract
 {
+    private string $uri;
+
     /**
      * Creates a new ResourceUri value object.
      */
-    private function __construct(private string $uri)
+    private function __construct(string $uri)
     {
-        // ..
+        $this->uri = $uri;
     }
 
     /**

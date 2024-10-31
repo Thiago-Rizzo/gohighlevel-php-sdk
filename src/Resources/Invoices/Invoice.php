@@ -15,7 +15,7 @@ final class Invoice implements InvoiceContract
 {
     use Transportable;
 
-    public function generateNumber(string $altId, string $altType): array|string
+    public function generateNumber(string $altId, string $altType)
     {
         $params['altId'] = $altId;
         $params['altType'] = $altType;
@@ -27,7 +27,7 @@ final class Invoice implements InvoiceContract
     /**
      * {@inheritDoc}
      */
-    public function get(string $invoiceId, string $altId, string $altType, array $params = []): array|string
+    public function get(string $invoiceId, string $altId, string $altType, array $params = [])
     {
         $params['altId'] = $altId;
         $params['altType'] = $altType;
@@ -36,21 +36,21 @@ final class Invoice implements InvoiceContract
         return $this->transporter->requestObject($payload)->data();
     }
 
-    public function update(string $invoiceId, array $params): array|string
+    public function update(string $invoiceId, array $params)
     {
         $payload = Payload::put("invoices/{$invoiceId}", $params);
 
         return $this->transporter->requestObject($payload)->data();
     }
 
-    public function delete(string $invoiceId, string $altId, string $altType): array|string
+    public function delete(string $invoiceId, string $altId, string $altType)
     {
         $payload = Payload::deleteFromUri("invoices/{$invoiceId}?altId={$altId}&altType={$altType}");
 
         return $this->transporter->requestObject($payload)->data();
     }
 
-    public function void(string $invoiceId, string $altId, string $altType): array|string
+    public function void(string $invoiceId, string $altId, string $altType)
     {
         $params['altId'] = $altId;
         $params['altType'] = $altType;
@@ -59,14 +59,14 @@ final class Invoice implements InvoiceContract
         return $this->transporter->requestObject($payload)->data();
     }
 
-    public function send(string $invoiceId, array $params): array|string
+    public function send(string $invoiceId, array $params)
     {
         $payload = Payload::post("invoices/{$invoiceId}/send/", $params);
 
         return $this->transporter->requestObject($payload)->data();
     }
 
-    public function recordPayment(string $invoiceId, array $params): array|string
+    public function recordPayment(string $invoiceId, array $params)
     {
         $payload = Payload::post("invoices/{$invoiceId}/record-payment", $params);
 
@@ -74,7 +74,7 @@ final class Invoice implements InvoiceContract
 
     }
 
-    public function create(array $params): array|string
+    public function create(array $params)
     {
 
         $payload = Payload::post('invoices/', $params);
@@ -82,7 +82,7 @@ final class Invoice implements InvoiceContract
         return $this->transporter->requestObject($payload)->data();
     }
 
-    public function list(string $altId, string $altType, string $limit, string $offset, array $params = []): array|string
+    public function list(string $altId, string $altType, string $limit, string $offset, array $params = [])
     {
         $params['altId'] = $altId;
         $params['altType'] = $altType;

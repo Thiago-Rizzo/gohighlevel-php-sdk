@@ -21,7 +21,7 @@ class Location implements LocationContract
     /**
      * {@inheritDoc}
      */
-    public function create(array $params): array|string
+    public function create(array $params)
     {
         $payload = Payload::create('locations/', $params);
 
@@ -31,7 +31,7 @@ class Location implements LocationContract
     /**
      * {@inheritDoc}
      */
-    public function get(string $locationId): array|string
+    public function get(string $locationId)
     {
         $payload = Payload::get("locations/{$locationId}");
 
@@ -41,7 +41,7 @@ class Location implements LocationContract
     /**
      * {@inheritDoc}
      */
-    public function update(string $locationId, array $params = []): array|string
+    public function update(string $locationId, array $params = [])
     {
         $payload = Payload::put("locations/{$locationId}", $params);
 
@@ -51,7 +51,7 @@ class Location implements LocationContract
     /**
      * {@inheritDoc}
      */
-    public function delete(string $locationId, array $params = []): array|string
+    public function delete(string $locationId, array $params = [])
     {
         $payload = Payload::delete('locations', $locationId);
 

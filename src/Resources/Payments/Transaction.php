@@ -13,7 +13,7 @@ class Transaction implements TransactionContract
     /**
      * {@inheritDoc}
      */
-    public function list(string $altId, string $altType, array $params = []): array|string
+    public function list(string $altId, string $altType, array $params = [])
     {
         $params['altId'] = $altId;
         $params['altType'] = $altType;
@@ -25,7 +25,7 @@ class Transaction implements TransactionContract
     /**
      * {@inheritDoc}
      */
-    public function get(string $transactionId, string $altId, string $altType, array $params = []): array|string
+    public function get(string $transactionId, string $altId, string $altType, array $params = [])
     {
         $payload = Payload::get("payments/transactions/{$transactionId}", $params);
 

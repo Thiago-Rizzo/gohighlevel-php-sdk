@@ -18,7 +18,7 @@ final class Calendar implements CalendarContract
     /**
      * {@inheritDoc}
      */
-    public function slots(string $calendarId, string $startDate, string $endDate): array|string
+    public function slots(string $calendarId, string $startDate, string $endDate)
     {
         $params['startDate'] = $startDate;
         $params['endDate'] = $endDate;
@@ -30,7 +30,7 @@ final class Calendar implements CalendarContract
     /**
      * {@inheritDoc}
      */
-    public function update(string $calendarId, array $params = []): array|string
+    public function update(string $calendarId, array $params = [])
     {
         $payload = Payload::put("calendars/{$calendarId}", $params);
 
@@ -40,7 +40,7 @@ final class Calendar implements CalendarContract
     /**
      * {@inheritDoc}
      */
-    public function get(string $calendarId): array|string
+    public function get(string $calendarId)
     {
         $payload = Payload::get("calendars/{$calendarId}");
 
@@ -50,7 +50,7 @@ final class Calendar implements CalendarContract
     /**
      * {@inheritDoc}
      */
-    public function delete(string $calendarId): array|string
+    public function delete(string $calendarId)
     {
         $payload = Payload::deleteFromUri("calendars/{$calendarId}");
 
@@ -60,7 +60,7 @@ final class Calendar implements CalendarContract
     /**
      * {@inheritDoc}
      */
-    public function list(string $locationId, array $params = []): array|string
+    public function list(string $locationId, array $params = [])
     {
         $params['locationId'] = $locationId;
         $payload = Payload::get('calendars/', $params);
@@ -71,7 +71,7 @@ final class Calendar implements CalendarContract
     /**
      * {@inheritDoc}
      */
-    public function create(string $locationId, string $name, array $params = []): array|string
+    public function create(string $locationId, string $name, array $params = [])
     {
         $params['locationId'] = $locationId;
         $params['name'] = $name;

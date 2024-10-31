@@ -15,7 +15,7 @@ class Template implements TemplateContract
     /**
      * {@inheritDoc}
      */
-    public function list(string $locationId, string $originId, array $params = []): array|string
+    public function list(string $locationId, string $originId, array $params = [])
     {
         $params['originId'] = $originId;
         $payload = Payload::get("locations/{$locationId}/templates", $params);
@@ -26,7 +26,7 @@ class Template implements TemplateContract
     /**
      * {@inheritDoc}
      */
-    public function delete(string $locationId, string $id): array|string
+    public function delete(string $locationId, string $id)
     {
         $payload = Payload::delete('locations/{locationId}/templates/', $id);
 

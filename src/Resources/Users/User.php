@@ -15,7 +15,7 @@ class User implements UsersContract
     /**
      * {@inheritDoc}
      */
-    public function get(string $userId): array|string
+    public function get(string $userId)
     {
         $payload = Payload::get("users/$userId");
 
@@ -25,7 +25,7 @@ class User implements UsersContract
     /**
      * {@inheritDoc}
      */
-    public function update(string $userId, array $params = []): array|string
+    public function update(string $userId, array $params = [])
     {
         $payload = Payload::put("users/$userId", $params);
 
@@ -35,7 +35,7 @@ class User implements UsersContract
     /**
      * {@inheritDoc}
      */
-    public function delete(string $userId): array|string
+    public function delete(string $userId)
     {
         $payload = Payload::delete('users', $userId);
 
@@ -45,7 +45,7 @@ class User implements UsersContract
     /**
      * {@inheritDoc}
      */
-    public function byLocation(string $locationId): array|string
+    public function byLocation(string $locationId)
     {
         $params['locationId'] = $locationId;
         $payload = Payload::get('users/', $params);
@@ -56,7 +56,7 @@ class User implements UsersContract
     /**
      * {@inheritDoc}
      */
-    public function create(string $companyId, array $params): array|string
+    public function create(string $companyId, array $params)
     {
         $params['companyId'] = $companyId;
         $payload = Payload::post('users/', $params);
@@ -67,7 +67,7 @@ class User implements UsersContract
     /**
      * {@inheritDoc}
      */
-    public function search(string $companyId, array $params = []): array|string
+    public function search(string $companyId, array $params = [])
     {
         $params['companyId'] = $companyId;
         $payload = Payload::get('users/search', $params);

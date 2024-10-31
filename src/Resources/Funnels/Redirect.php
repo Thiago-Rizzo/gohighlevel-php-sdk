@@ -12,21 +12,21 @@ final class Redirect implements RedirectContract
 {
     use Transportable;
 
-    public function create(array $params): array|string
+    public function create(array $params)
     {
         $paylaod = Payload::post('funnels/lookup/redirect', $params);
 
         return $this->transporter->requestObject($paylaod)->data();
     }
 
-    public function update(string $id, array $params): array|string
+    public function update(string $id, array $params)
     {
         $payload = Payload::patch("funnels/lookup/redirect/{$id}", $params);
 
         return $this->transporter->requestObject($payload)->data();
     }
 
-    public function list(string $locationId, int $limit, int $offset): array|string
+    public function list(string $locationId, int $limit, int $offset)
     {
         $params['locationId'] = $locationId;
         $params['limit'] = $limit;
@@ -36,7 +36,7 @@ final class Redirect implements RedirectContract
         return $this->transporter->requestObject($payload)->data();
     }
 
-    public function delete(string $id, string $locationId): array|string
+    public function delete(string $id, string $locationId)
     {
         $payload = Payload::deleteFromUri("funnels/lookup/redirect/{$id}?locationId={$locationId}");
 

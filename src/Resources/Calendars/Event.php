@@ -12,7 +12,7 @@ final class Event implements EventContract
 {
     use Transportable;
 
-    public function list(string $locationId, array $params = []): array|string
+    public function list(string $locationId, array $params = [])
     {
         $params['locationId'] = $locationId;
         $payload = Payload::get('calendars/events/', $params);
@@ -23,7 +23,7 @@ final class Event implements EventContract
     /**
      * {@inheritDoc}
      */
-    public function get(string $locationId, string $startTime, string $endTime, array $params = []): array|string
+    public function get(string $locationId, string $startTime, string $endTime, array $params = [])
     {
         $params['locationId'] = $locationId;
         $params['startTime'] = $startTime;
@@ -36,7 +36,7 @@ final class Event implements EventContract
     /**
      * {@inheritDoc}
      */
-    public function slots(string $locationId, string $endTime, string $startTime, array $params = []): array|string
+    public function slots(string $locationId, string $endTime, string $startTime, array $params = [])
     {
         $params['endtime'] = $endTime;
         $params['startTime'] = $startTime;
@@ -49,7 +49,7 @@ final class Event implements EventContract
     /**
      * {@inheritDoc}
      */
-    public function getAppointment(string $eventId): array|string
+    public function getAppointment(string $eventId)
     {
         $payload = Payload::get("calendars/events/appointments/{$eventId}");
 
@@ -59,7 +59,7 @@ final class Event implements EventContract
     /**
      * {@inheritDoc}
      */
-    public function editAppointment(string $eventId, array $params = []): array|string
+    public function editAppointment(string $eventId, array $params = [])
     {
         $payload = Payload::put("calendars/events/appointments/{$eventId}", $params);
 
@@ -69,7 +69,7 @@ final class Event implements EventContract
     /**
      * {@inheritDoc}
      */
-    public function createAppointment(string $calendarId, string $locationId, string $contactId, string $startTime, array $params): array|string
+    public function createAppointment(string $calendarId, string $locationId, string $contactId, string $startTime, array $params)
     {
         $params['calendarId'] = $calendarId;
         $params['locationId'] = $locationId;
@@ -83,7 +83,7 @@ final class Event implements EventContract
     /**
      * {@inheritDoc}
      */
-    public function createSlot(string $locationId, string $startTime, string $endTime, array $params = []): array|string
+    public function createSlot(string $locationId, string $startTime, string $endTime, array $params = [])
     {
         $params['locationId'] = $locationId;
         $params['startTime'] = $startTime;
@@ -96,7 +96,7 @@ final class Event implements EventContract
     /**
      * {@inheritDoc}
      */
-    public function editSlot(string $eventId, array $params = []): array|string
+    public function editSlot(string $eventId, array $params = [])
     {
         $payload = Payload::put("calendars/events/block-slots/{$eventId}", $params);
 
@@ -106,7 +106,7 @@ final class Event implements EventContract
     /**
      * {@inheritDoc}
      */
-    public function delete(string $eventId): array|string
+    public function delete(string $eventId)
     {
         $payload = Payload::delete('calendars/events', $eventId);
 

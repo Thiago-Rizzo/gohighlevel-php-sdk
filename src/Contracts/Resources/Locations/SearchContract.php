@@ -11,10 +11,10 @@ interface SearchContract
      *
      * @see https://highlevel.stoplight.io/docs/integrations/12f3fb56990d3-search-locations
      */
-    public function search(array $params): array|string;
+    public function search(array $params);
 
     /**
      * @see https://highlevel.stoplight.io/docs/integrations/8d73480560089-task-search-filter
      */
-    public function tasks(string $locationId, array $params = []): array|string;
+    public function tasks(string $locationId, array $params = []);
 }

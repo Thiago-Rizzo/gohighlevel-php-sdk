@@ -25,7 +25,7 @@ final class Contact implements ContactContract
      *
      * @see https://highlevel.stoplight.io/docs/integrations/00c5ff21f0030-get-contact
      */
-    public function get(string $contactId): string|array
+    public function get(string $contactId)
     {
         $payload = Payload::get("contacts/{$contactId}");
 
@@ -37,7 +37,7 @@ final class Contact implements ContactContract
      *
      * @see https://highlevel.stoplight.io/docs/integrations/9ce5a739d4fb9-update-contact
      */
-    public function update(string $contactId, array $params): string|array
+    public function update(string $contactId, array $params)
     {
         $payload = Payload::put("contacts/{$contactId}", $params);
 
@@ -73,7 +73,7 @@ final class Contact implements ContactContract
      *
      * @see https://highlevel.stoplight.io/docs/integrations/8efc6d5a99417-get-contacts-by-business-id
      */
-    public function byBusiness(string $businessId): string|array
+    public function byBusiness(string $businessId)
     {
         $payload = Payload::get('contacts/business/businessId', [
             'locationId' => $businessId,
@@ -99,7 +99,7 @@ final class Contact implements ContactContract
      *
      * @see https://highlevel.stoplight.io/docs/integrations/ab55933a57f6f-get-contacts
      */
-    public function list(string $locationId): string|array
+    public function list(string $locationId)
     {
         $payload = Payload::get('contacts/', [
             'locationId' => $locationId,

@@ -11,10 +11,10 @@ interface Text2payContract
      *
      * @see https://highlevel.stoplight.io/docs/integrations/e739c3a249591-create-and-send
      */
-    public function create(array $params): array|string;
+    public function create(array $params);
 
     /**
      * Update & Send
      */
-    public function update(string $id, array $params): array|string;
+    public function update(string $id, array $params);
 }

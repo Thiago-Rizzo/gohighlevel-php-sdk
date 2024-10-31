@@ -12,14 +12,14 @@ final class Template implements TemplateContract
 {
     use Transportable;
 
-    public function create(array $params): array|string
+    public function create(array $params)
     {
         $payload = Payload::post('invoices/template/', $params);
 
         return $this->transporter->requestObject($payload)->data();
     }
 
-    public function list(string $altId, string $altType, string $limit, string $offset, array $params = []): array|string
+    public function list(string $altId, string $altType, string $limit, string $offset, array $params = [])
     {
         $params['altId'] = $altId;
         $params['altType'] = $altType;
@@ -30,7 +30,7 @@ final class Template implements TemplateContract
         return $this->transporter->requestObject($payload)->data();
     }
 
-    public function get(string $templateId, string $altId, string $altType): array|string
+    public function get(string $templateId, string $altId, string $altType)
     {
         $params['altId'] = $altId;
         $params['altType'] = $altType;
@@ -39,14 +39,14 @@ final class Template implements TemplateContract
         return $this->transporter->requestObject($payload)->data();
     }
 
-    public function update(string $templateId, array $params = []): array|string
+    public function update(string $templateId, array $params = [])
     {
         $payload = Payload::put("invoices/template/{$templateId}/", $params);
 
         return $this->transporter->requestObject($payload)->data();
     }
 
-    public function delete(string $templateId): array|string
+    public function delete(string $templateId)
     {
         $payload = Payload::deleteFromUri("invoices/template/{$templateId}/");
 

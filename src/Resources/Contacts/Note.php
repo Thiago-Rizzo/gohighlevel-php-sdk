@@ -15,7 +15,7 @@ final class Note implements NoteContract
     /**
      * {@inheritDoc}
      */
-    public function list(string $contactId): string|array
+    public function list(string $contactId)
     {
         $payload = Payload::get("contacts/{$contactId}/notes");
 
@@ -25,7 +25,7 @@ final class Note implements NoteContract
     /**
      * {@inheritDoc}
      */
-    public function create(string $contactId, string $userId, string $body): string|array
+    public function create(string $contactId, string $userId, string $body)
     {
         $payload = Payload::create("contacts/{$contactId}/notes", [
             'userId' => $userId,
@@ -38,7 +38,7 @@ final class Note implements NoteContract
     /**
      * {@inheritDoc}
      */
-    public function get(string $contactId, string $id): string|array
+    public function get(string $contactId, string $id)
     {
         $payload = Payload::get("contacts/{$contactId}/notes/{$id}");
 
@@ -48,7 +48,7 @@ final class Note implements NoteContract
     /**
      * {@inheritDoc}
      */
-    public function update(string $contactId, string $id, string $userId, string $body): string|array
+    public function update(string $contactId, string $id, string $userId, string $body)
     {
         $payload = Payload::put("contacts/{$contactId}/notes/{$id}");
 

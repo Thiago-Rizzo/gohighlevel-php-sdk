@@ -17,7 +17,7 @@ interface TriggerLinkContract
      *
      * @see https://highlevel.stoplight.io/docs/integrations/7fb0921457bdb-update-link
      */
-    public function update(string $linkId, array $params): array|string;
+    public function update(string $linkId, array $params);
 
     /**
      * Delete Link
@@ -25,7 +25,7 @@ interface TriggerLinkContract
      *
      * @see https://highlevel.stoplight.io/docs/integrations/b38b571ee30bd-delete-link
      */
-    public function delete(string $linkId): array|string;
+    public function delete(string $linkId);
 
     /**
      * Get Links
@@ -33,12 +33,12 @@ interface TriggerLinkContract
      *
      * @see https://highlevel.stoplight.io/docs/integrations/7b6e00ee0f653-get-links
      */
-    public function get(string $locationId): array|string;
+    public function get(string $locationId);
 
     /**
      * Create Link
      *
      * @see https://highlevel.stoplight.io/docs/integrations/30442546481af-create-link
      */
-    public function create(array $params): array|string;
+    public function create(array $params);
 }

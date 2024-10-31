@@ -15,7 +15,7 @@ final class Form implements FormContract
     /**
      * {@inheritDoc}
      */
-    public function submissions(string $locationId, array $params = []): array|string
+    public function submissions(string $locationId, array $params = [])
     {
         $params['locationId'] = $locationId;
         $payload = Payload::get('forms/submissions', $params);
@@ -26,7 +26,7 @@ final class Form implements FormContract
     /**
      * {@inheritDoc}
      */
-    public function uploadToCustomFields(string $locationId, string $contactId, array $params = []): array|string
+    public function uploadToCustomFields(string $locationId, string $contactId, array $params = [])
     {
         $params['locationId'] = $locationId;
         $params['contactId'] = $contactId;
@@ -38,7 +38,7 @@ final class Form implements FormContract
     /**
      * {@inheritDoc}
      */
-    public function list(string $locationId, array $params = []): array|string
+    public function list(string $locationId, array $params = [])
     {
         $params['locationId'] = $locationId;
         $payload = Payload::get('forms/', $params);

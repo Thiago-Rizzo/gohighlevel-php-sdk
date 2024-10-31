@@ -14,5 +14,5 @@ interface CourseContract
      *
      * @see https://highlevel.stoplight.io/docs/integrations/7ca9bb420fe98-import-courses
      */
-    public function import(string $locationId, string $userId, array $products): array|string;
+    public function import(string $locationId, string $userId, array $products);
 }

@@ -8,12 +8,14 @@ use Exception;
 
 final class ErrorException extends Exception
 {
+    private array $contents;
+
     /**
      * Creates a new Exception instance.
      */
-    public function __construct(private readonly array $contents)
+    public function __construct(array $contents)
     {
-        $message = ($contents['message'] ?: (string) $this->contents['code']) ?: 'Unknown error';
+        $message = ($contents['message'] ?: (string)$this->contents['code']) ?: 'Unknown error';
 
         if (is_array($message)) {
             $message = implode(PHP_EOL, $message);
@@ -40,8 +42,10 @@ final class ErrorException extends Exception
 
     /**
      * Returns the error code.
+     *
+     * @return string|int|null
      */
-    public function getErrorCode(): string|int|null
+    public function getErrorCode()
     {
         return $this->contents['code'];
     }

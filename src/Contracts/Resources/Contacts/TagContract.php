@@ -12,7 +12,7 @@ interface TagContract
      *
      * @see https://highlevel.stoplight.io/docs/integrations/c9bbad7cdacf5-add-tags
      */
-    public function create(string $contactId, array|string $tags);
+    public function create(string $contactId, $tags);
 
     /**
      * Remove Tags

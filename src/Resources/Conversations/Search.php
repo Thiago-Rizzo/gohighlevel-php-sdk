@@ -12,7 +12,7 @@ final class Search implements SearchContract
 {
     use Transportable;
 
-    public function make(string $locationId, $parameters = []): array|string
+    public function make(string $locationId, $parameters = [])
     {
         $parameters['locationId'] = $locationId;
         $payload = Payload::get('conversations/search', $parameters);

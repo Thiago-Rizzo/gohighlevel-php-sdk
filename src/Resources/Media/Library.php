@@ -12,21 +12,21 @@ final class Library implements LibraryContract
 {
     use Transportable;
 
-    public function delete(string $id, string $altId, string $altType): array|string
+    public function delete(string $id, string $altId, string $altType)
     {
         $payload = Payload::deleteFromUri("medias/{$id}?altType={$altType}&altId={$altId}");
 
         return $this->transporter->requestObject($payload)->data();
     }
 
-    public function upload(array $params): array|string
+    public function upload(array $params)
     {
         $payload = Payload::post('medias/upload-file', $params);
 
         return $this->transporter->requestObject($payload)->data();
     }
 
-    public function list(string $altId, string $altType, string $sortBy, string $sortOrder, array $params = []): array|string
+    public function list(string $altId, string $altType, string $sortBy, string $sortOrder, array $params = [])
     {
         $params['altId'] = $altId;
         $params['altType'] = $altType;

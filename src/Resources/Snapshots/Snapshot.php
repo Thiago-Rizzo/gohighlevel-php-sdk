@@ -15,7 +15,7 @@ class Snapshot implements SnapshotsContract
     /**
      * {@inheritDoc}
      */
-    public function list(array $params = []): array|string
+    public function list(array $params = [])
     {
         $payload = Payload::get('snapshots/', $params);
 
@@ -25,7 +25,7 @@ class Snapshot implements SnapshotsContract
     /**
      * {@inheritDoc}
      */
-    public function create(string $companyId, array $params = []): array|string
+    public function create(string $companyId, array $params = [])
     {
         $params['companyId'] = $companyId;
         $payload = Payload::create('snapshots/share/link', $params);
@@ -36,7 +36,7 @@ class Snapshot implements SnapshotsContract
     /**
      * {@inheritDoc}
      */
-    public function between(string $snapshotId, string $from, string $to, array $params = []): array|string
+    public function between(string $snapshotId, string $from, string $to, array $params = [])
     {
         $params['from'] = $from;
         $params['to'] = $to;
@@ -48,7 +48,7 @@ class Snapshot implements SnapshotsContract
     /**
      * {@inheritDoc}
      */
-    public function get(string $snapshotId, string $locationId, array $params = []): array|string
+    public function get(string $snapshotId, string $locationId, array $params = [])
     {
         $payload = Payload::get("snapshots/snapshot-status/{$snapshotId}/location/{$locationId}", $params);
 

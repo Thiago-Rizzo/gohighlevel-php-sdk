@@ -15,7 +15,7 @@ class Search implements SearchContract
     /**
      * {@inheritDoc}
      */
-    public function search(array $params): array|string
+    public function search(array $params)
     {
         $payload = Payload::get('locations/search', $params);
 
@@ -25,7 +25,7 @@ class Search implements SearchContract
     /**
      * {@inheritDoc}
      */
-    public function tasks(string $locationId, array $params = []): array|string
+    public function tasks(string $locationId, array $params = [])
     {
         $payload = Payload::get("locations/{$locationId}/tasks/search", $params);
 

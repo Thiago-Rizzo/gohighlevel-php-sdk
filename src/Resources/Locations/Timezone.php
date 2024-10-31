@@ -15,7 +15,7 @@ class Timezone implements TimezoneContract
     /**
      * {@inheritDoc}
      */
-    public function list(string $locationId): array|string
+    public function list(string $locationId)
     {
         $payload = Payload::get("locations/{$locationId}/timezones");
 

@@ -12,7 +12,7 @@ final class Group implements GroupContract
 {
     use Transportable;
 
-    public function get(string $locationId): array|string
+    public function get(string $locationId)
     {
         $payload = Payload::get('calendars/groups', [
             'locationId' => $locationId,
@@ -21,14 +21,14 @@ final class Group implements GroupContract
         return $this->transporter->requestObject($payload)->get('groups');
     }
 
-    public function create(array $params): array|string
+    public function create(array $params)
     {
         $payload = Payload::create('calendars/groups', $params);
 
         return $this->transporter->requestObject($payload)->get('group');
     }
 
-    public function validate(string $locationId, string $slug, bool $available): array|string
+    public function validate(string $locationId, string $slug, bool $available)
     {
         $params['locationId'] = $locationId;
         $params['slug'] = $slug;
@@ -38,21 +38,21 @@ final class Group implements GroupContract
         return $this->transporter->requestObject($payload)->data();
     }
 
-    public function delete(string $groupId): array|string
+    public function delete(string $groupId)
     {
         $payload = Payload::delete('calendars/groups', $groupId);
 
         return $this->transporter->requestObject($payload)->data();
     }
 
-    public function update(string $groupId, array $params = []): array|string
+    public function update(string $groupId, array $params = [])
     {
         $payload = Payload::put("calendars/groups/{$groupId}", $params);
 
         return $this->transporter->requestObject($payload)->get('group');
     }
 
-    public function disable(string $groupId, bool $isActive): array|string
+    public function disable(string $groupId, bool $isActive)
     {
         $params['isActive'] = $isActive;
         $payload = Payload::put("calendars/groups/{$groupId}/status", $params);

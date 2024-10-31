@@ -9,16 +9,18 @@ use MusheAbdulHakim\GoHighLevel\Enums\Transporter\ContentType;
 /**
  * @internal
  */
-final readonly class Headers
+final class Headers
 {
+    private array $headers;
+
     /**
      * Creates a new Headers value object.
      *
-     * @param  array<string, string>  $headers
+     * @param array $headers
      */
-    private function __construct(private array $headers)
+    private function __construct(array $headers)
     {
-        // ..
+        $this->headers = $headers;
     }
 
     /**
@@ -42,12 +44,12 @@ final readonly class Headers
     /**
      * Creates a new Headers value object, with the given content type, and the existing headers.
      */
-    public function withContentType(ContentType $contentType, string $suffix = ''): self
+    public function withContentType(string $contentType, string $suffix = ''): self
     {
-        return new self([
-            ...$this->headers,
-            'Content-Type' => $contentType->value.$suffix,
-        ]);
+        return new self(array_merge(
+            $this->headers,
+            ['Content-Type' => $contentType . $suffix]
+        ));
     }
 
     /**
@@ -55,10 +57,10 @@ final readonly class Headers
      */
     public function withApiVersion(string $apiVersion): self
     {
-        return new self([
-            ...$this->headers,
-            'Version' => $apiVersion,
-        ]);
+        return new self(array_merge(
+            $this->headers,
+            ['Version' => $apiVersion]
+        ));
     }
 
     /**
@@ -66,14 +68,14 @@ final readonly class Headers
      */
     public function withCustomHeader(string $name, string $value): self
     {
-        return new self([
-            ...$this->headers,
-            $name => $value,
-        ]);
+        return new self(array_merge(
+            $this->headers,
+            [$name => $value]
+        ));
     }
 
     /**
-     * @return array<string, string> $headers
+     * @return array $headers
      */
     public function toArray(): array
     {

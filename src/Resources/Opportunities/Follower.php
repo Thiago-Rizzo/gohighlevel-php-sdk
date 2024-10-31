@@ -15,7 +15,7 @@ class Follower implements FollowerContract
     /**
      * {@inheritDoc}
      */
-    public function add(string $id, array $followers): array|string
+    public function add(string $id, array $followers)
     {
         $params['followers'] = $followers;
         $payload = Payload::post("opportunities/{$id}/followers", $params);
@@ -26,7 +26,7 @@ class Follower implements FollowerContract
     /**
      * {@inheritDoc}
      */
-    public function remove(string $id): array|string
+    public function remove(string $id)
     {
         $payload = Payload::deleteFromUri("opportunities/{$id}/followers");
 
@@ -36,7 +36,7 @@ class Follower implements FollowerContract
     /**
      * {@inheritDoc}
      */
-    public function delete(string $id): array|string
+    public function delete(string $id)
     {
         $payload = Payload::deleteFromUri("opportunities/{$id}/followers");
 

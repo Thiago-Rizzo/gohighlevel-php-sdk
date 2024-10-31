@@ -16,7 +16,7 @@ trait ArrayAccessible
     /**
      * {@inheritDoc}
      */
-    public function offsetExists(mixed $offset): bool
+    public function offsetExists( $offset): bool
     {
         return array_key_exists($offset, $this->toArray());
     }
@@ -24,7 +24,7 @@ trait ArrayAccessible
     /**
      * {@inheritDoc}
      */
-    public function offsetGet(mixed $offset): mixed
+    public function offsetGet( $offset)
     {
         return $this->toArray()[$offset]; // @phpstan-ignore-line
     }
@@ -32,7 +32,7 @@ trait ArrayAccessible
     /**
      * {@inheritDoc}
      */
-    public function offsetSet(mixed $offset, mixed $value): never
+    public function offsetSet( $offset,  $value): void
     {
         throw new BadMethodCallException('Cannot set response attributes.');
     }
@@ -40,7 +40,7 @@ trait ArrayAccessible
     /**
      * {@inheritDoc}
      */
-    public function offsetUnset(mixed $offset): never
+    public function offsetUnset( $offset): void
     {
         throw new BadMethodCallException('Cannot unset response attributes.');
     }

@@ -7,16 +7,18 @@ namespace MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter;
 /**
  * @internal
  */
-final readonly class QueryParams
+final class QueryParams
 {
+    private array $params;
+
     /**
      * Creates a new Query Params value object.
      *
-     * @param  array<string, string|int>  $params
+     * @param array $params
      */
-    private function __construct(private array $params)
+    private function __construct(array $params)
     {
-        // ..
+        $this->params = $params;
     }
 
     /**
@@ -29,17 +31,20 @@ final readonly class QueryParams
 
     /**
      * Creates a new Query Params value object, with the newly added param, and the existing params.
+     *
+     * @params string $name
+     * @params string|int $value
      */
-    public function withParam(string $name, string|int $value): self
+    public function withParam(string $name, $value): self
     {
-        return new self([
-            ...$this->params,
-            $name => $value,
-        ]);
+        return new self(array_merge(
+            $this->params,
+            [$name => $value]
+        ));
     }
 
     /**
-     * @return array<string, string|int>
+     * @return array
      */
     public function toArray(): array
     {

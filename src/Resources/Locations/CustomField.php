@@ -15,7 +15,7 @@ class CustomField implements CustomFieldContract
     /**
      * {@inheritDoc}
      */
-    public function list(string $locationId): array|string
+    public function list(string $locationId)
     {
         $payload = Payload::get("locations/{$locationId}/customFields");
 
@@ -25,7 +25,7 @@ class CustomField implements CustomFieldContract
     /**
      * {@inheritDoc}
      */
-    public function create(string $locationId, string $name, string $dataType, array $params): array|string
+    public function create(string $locationId, string $name, string $dataType, array $params)
     {
         $params['name'] = $name;
         $params['dataType'] = $dataType;
@@ -37,7 +37,7 @@ class CustomField implements CustomFieldContract
     /**
      * {@inheritDoc}
      */
-    public function get(string $locationId, string $id): array|string
+    public function get(string $locationId, string $id)
     {
         $payload = Payload::get("locations/{$locationId}/customFields/{$id}");
 
@@ -47,7 +47,7 @@ class CustomField implements CustomFieldContract
     /**
      * {@inheritDoc}
      */
-    public function update(string $locationId, string $id, array $params): array|string
+    public function update(string $locationId, string $id, array $params)
     {
         $payload = Payload::put("locations/{$locationId}/customFields/{$id}", $params);
 
@@ -57,7 +57,7 @@ class CustomField implements CustomFieldContract
     /**
      * {@inheritDoc}
      */
-    public function delete(string $locationId, string $id): array|string
+    public function delete(string $locationId, string $id)
     {
         $payload = Payload::delete("locations/{$locationId}/customFields", $id);
 
@@ -67,7 +67,7 @@ class CustomField implements CustomFieldContract
     /**
      * {@inheritDoc}
      */
-    public function upload(string $locationId, array $params): array|string
+    public function upload(string $locationId, array $params)
     {
         $resource = "locations/{$locationId}/customFields/upload";
         $payload = Payload::upload($resource, $params);

@@ -15,7 +15,7 @@ class Survey implements SurveysContract
     /**
      * {@inheritDoc}
      */
-    public function submissions(string $locationId, array $params = []): array|string
+    public function submissions(string $locationId, array $params = [])
     {
         $params['locationId'] = $locationId;
         $payload = Payload::get('surveys/submissions', $params);
@@ -26,7 +26,7 @@ class Survey implements SurveysContract
     /**
      * {@inheritDoc}
      */
-    public function list(string $locationId, array $params = []): array|string
+    public function list(string $locationId, array $params = [])
     {
         $params['locationId'] = $locationId;
         $payload = Payload::get('surveys/', $params);

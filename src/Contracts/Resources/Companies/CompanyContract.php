@@ -11,5 +11,5 @@ interface CompanyContract
      *
      * @see https://highlevel.stoplight.io/docs/integrations/cc7b8a7892119-get-company
      */
-    public function get(string $companyId): array|string;
+    public function get(string $companyId);
 }

@@ -8,8 +8,10 @@ use MusheAbdulHakim\GoHighLevel\Contracts\TransporterContract;
 
 trait Transportable
 {
-    public function __construct(private readonly TransporterContract $transporter)
+    private TransporterContract $transporter;
+
+    public function __construct(TransporterContract $transporter)
     {
-        // ..
+        $this->transporter = $transporter;
     }
 }

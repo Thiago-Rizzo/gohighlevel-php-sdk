@@ -9,14 +9,16 @@ use MusheAbdulHakim\GoHighLevel\Contracts\StringableContract;
 /**
  * @internal
  */
-final readonly class BaseUri implements StringableContract
+final class BaseUri implements StringableContract
 {
+    private string $baseUri;
+
     /**
      * Creates a new Base URI value object.
      */
-    private function __construct(private string $baseUri)
+    private function __construct(string $baseUri)
     {
-        // ..
+        $this->baseUri = $baseUri;
     }
 
     /**

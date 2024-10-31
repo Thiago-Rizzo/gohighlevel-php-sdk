@@ -43,7 +43,7 @@ final class Factory
     /**
      * The HTTP headers for the requests.
      *
-     * @var array<string, string>
+     * @var array
      */
     private array $headers = [];
 
@@ -52,7 +52,7 @@ final class Factory
     /**
      * The query parameters for the requests.
      *
-     * @var array<string, string|int>
+     * @var array
      */
     private array $queryParams = [];
 
@@ -157,7 +157,7 @@ final class Factory
             return fn (RequestInterface $request): ResponseInterface => $client->sendRequest($request);
         }
 
-        return function (RequestInterface $_): never {
+        return function (RequestInterface $_): void {
             throw new Exception('To use stream requests you must provide an stream handler closure via the OpenAI factory.');
         };
     }
