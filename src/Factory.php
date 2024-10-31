@@ -165,8 +165,8 @@ final class Factory
     public function make(): Client
     {
         $headers = Headers::create()
-            ->withApiVersion($this->apiVersion)
-            ->withAuthorization(ApiKey::from($this->apiKey));
+            ->withAuthorization(ApiKey::from($this->apiKey))
+            ->withApiVersion($this->apiVersion);
 
         foreach ($this->headers as $name => $value) {
             $headers = $headers->withCustomHeader($name, $value);
