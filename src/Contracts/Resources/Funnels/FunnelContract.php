@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\Contracts\Resources\Funnels;
+namespace GoHighLevelSDK\Contracts\Resources\Funnels;
 
 interface FunnelContract
 {

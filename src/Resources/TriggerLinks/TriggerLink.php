@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\Resources\TriggerLinks;
+namespace GoHighLevelSDK\Resources\TriggerLinks;
 
-use MusheAbdulHakim\GoHighLevel\Contracts\Resources\TriggerLinks\TriggerLinkContract;
-use MusheAbdulHakim\GoHighLevel\Resources\Concerns\Transportable;
-use MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter\Payload;
+use GoHighLevelSDK\Contracts\Resources\TriggerLinks\TriggerLinkContract;
+use GoHighLevelSDK\Resources\Concerns\Transportable;
+use GoHighLevelSDK\ValueObjects\Transporter\Payload;
 
 final class TriggerLink implements TriggerLinkContract
 {

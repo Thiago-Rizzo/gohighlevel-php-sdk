@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\Resources\Locations;
+namespace GoHighLevelSDK\Resources\Locations;
 
-use MusheAbdulHakim\GoHighLevel\Contracts\Resources\Locations\CustomFieldContract;
-use MusheAbdulHakim\GoHighLevel\Contracts\Resources\Locations\CustomValueContract;
-use MusheAbdulHakim\GoHighLevel\Contracts\Resources\Locations\LocationContract;
-use MusheAbdulHakim\GoHighLevel\Contracts\Resources\Locations\SearchContract;
-use MusheAbdulHakim\GoHighLevel\Contracts\Resources\Locations\TagContract;
-use MusheAbdulHakim\GoHighLevel\Contracts\Resources\Locations\TemplateContract;
-use MusheAbdulHakim\GoHighLevel\Contracts\Resources\Locations\TimezoneContract;
-use MusheAbdulHakim\GoHighLevel\Resources\Concerns\Transportable;
-use MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter\Payload;
+use GoHighLevelSDK\Contracts\Resources\Locations\CustomFieldContract;
+use GoHighLevelSDK\Contracts\Resources\Locations\CustomValueContract;
+use GoHighLevelSDK\Contracts\Resources\Locations\LocationContract;
+use GoHighLevelSDK\Contracts\Resources\Locations\SearchContract;
+use GoHighLevelSDK\Contracts\Resources\Locations\TagContract;
+use GoHighLevelSDK\Contracts\Resources\Locations\TemplateContract;
+use GoHighLevelSDK\Contracts\Resources\Locations\TimezoneContract;
+use GoHighLevelSDK\Resources\Concerns\Transportable;
+use GoHighLevelSDK\ValueObjects\Transporter\Payload;
 
 class Location implements LocationContract
 {

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\Resources;
+namespace GoHighLevelSDK\Resources;
 
-use MusheAbdulHakim\GoHighLevel\Contracts\Resources\BusinessContract;
-use MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter\Payload;
-use MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter\Response;
+use GoHighLevelSDK\Contracts\Resources\BusinessContract;
+use GoHighLevelSDK\ValueObjects\Transporter\Payload;
+use GoHighLevelSDK\ValueObjects\Transporter\Response;
 
 final class Business implements BusinessContract
 {

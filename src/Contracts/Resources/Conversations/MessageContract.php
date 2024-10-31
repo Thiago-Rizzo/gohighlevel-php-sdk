@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\Contracts\Resources\Conversations;
+namespace GoHighLevelSDK\Contracts\Resources\Conversations;
 
 interface MessageContract
 {

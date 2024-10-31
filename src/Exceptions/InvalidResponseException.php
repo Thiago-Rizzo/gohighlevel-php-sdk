@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\Exceptions;
+namespace GoHighLevelSDK\Exceptions;
 
 use Exception;
 use Psr\Http\Message\ResponseInterface;

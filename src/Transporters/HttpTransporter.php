@@ -2,25 +2,26 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\Transporters;
+namespace GoHighLevelSDK\Transporters;
 
 use Closure;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\RequestException;
 use JsonException;
-use MusheAbdulHakim\GoHighLevel\Contracts\TransporterContract;
-use MusheAbdulHakim\GoHighLevel\Enums\Transporter\ContentType;
-use MusheAbdulHakim\GoHighLevel\Exceptions\ErrorException;
-use MusheAbdulHakim\GoHighLevel\Exceptions\TransporterException;
-use MusheAbdulHakim\GoHighLevel\Exceptions\UnserializableResponse;
-use MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter\BaseUri;
-use MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter\Headers;
-use MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter\Payload;
-use MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter\QueryParams;
-use MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter\Response;
+use GoHighLevelSDK\Contracts\TransporterContract;
+use GoHighLevelSDK\Enums\Transporter\ContentType;
+use GoHighLevelSDK\Exceptions\ErrorException;
+use GoHighLevelSDK\Exceptions\TransporterException;
+use GoHighLevelSDK\Exceptions\UnserializableResponse;
+use GoHighLevelSDK\ValueObjects\Transporter\BaseUri;
+use GoHighLevelSDK\ValueObjects\Transporter\Headers;
+use GoHighLevelSDK\ValueObjects\Transporter\Payload;
+use GoHighLevelSDK\ValueObjects\Transporter\QueryParams;
+use GoHighLevelSDK\ValueObjects\Transporter\Response;
 use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\ResponseInterface;
+use Throwable;
 
 /**
  * @internal
@@ -86,7 +87,7 @@ final class HttpTransporter implements TransporterContract
         try {
             /** @var array{error?: array{message: string, type: string, code: string}} $data */
             $data = json_decode($contents, true, JSON_THROW_ON_ERROR);
-        } catch (JsonException $jsonException) {
+        } catch (Throwable $jsonException) {
             throw new UnserializableResponse($jsonException);
         }
 
@@ -127,7 +128,7 @@ final class HttpTransporter implements TransporterContract
     {
         try {
             return $callable();
-        } catch (ClientExceptionInterface $clientException) {
+        } catch (Throwable $clientException) {
             if ($clientException instanceof ClientException) {
                 $this->throwIfJsonError($clientException->getResponse(), $clientException->getResponse()->getBody()->getContents());
             }
@@ -164,7 +165,7 @@ final class HttpTransporter implements TransporterContract
             if (isset($response['error'])) {
                 throw new ErrorException($response);
             }
-        } catch (JsonException $jsonException) {
+        } catch (Throwable $jsonException) {
             throw new UnserializableResponse($jsonException);
         }
     }

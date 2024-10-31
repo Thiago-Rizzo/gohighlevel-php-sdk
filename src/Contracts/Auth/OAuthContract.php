@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\Contracts\Auth;
+namespace GoHighLevelSDK\Contracts\Auth;
 
 /**
  * @see https://highlevel.stoplight.io/docs/integrations/889f37581bd0e-o-auth-2-0

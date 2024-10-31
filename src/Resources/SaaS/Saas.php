@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\Resources\SaaS;
+namespace GoHighLevelSDK\Resources\SaaS;
 
-use MusheAbdulHakim\GoHighLevel\Contracts\Resources\SaaS\SaasContract;
-use MusheAbdulHakim\GoHighLevel\Resources\Concerns\Transportable;
-use MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter\Payload;
-use MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter\Response;
+use GoHighLevelSDK\Contracts\Resources\SaaS\SaasContract;
+use GoHighLevelSDK\Resources\Concerns\Transportable;
+use GoHighLevelSDK\ValueObjects\Transporter\Payload;
+use GoHighLevelSDK\ValueObjects\Transporter\Response;
 
 class Saas implements SaasContract
 {

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\Resources\Invoices;
+namespace GoHighLevelSDK\Resources\Invoices;
 
-use MusheAbdulHakim\GoHighLevel\Contracts\Resources\Invoices\ScheduleContract;
-use MusheAbdulHakim\GoHighLevel\Resources\Concerns\Transportable;
-use MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter\Payload;
+use GoHighLevelSDK\Contracts\Resources\Invoices\ScheduleContract;
+use GoHighLevelSDK\Resources\Concerns\Transportable;
+use GoHighLevelSDK\ValueObjects\Transporter\Payload;
 
 final class Schedule implements ScheduleContract
 {

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\Resources\Forms;
+namespace GoHighLevelSDK\Resources\Forms;
 
-use MusheAbdulHakim\GoHighLevel\Contracts\Resources\Forms\FormContract;
-use MusheAbdulHakim\GoHighLevel\Resources\Concerns\Transportable;
-use MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter\Payload;
+use GoHighLevelSDK\Contracts\Resources\Forms\FormContract;
+use GoHighLevelSDK\Resources\Concerns\Transportable;
+use GoHighLevelSDK\ValueObjects\Transporter\Payload;
 
 final class Form implements FormContract
 {

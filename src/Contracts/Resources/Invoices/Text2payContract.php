@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\Contracts\Resources\Invoices;
+namespace GoHighLevelSDK\Contracts\Resources\Invoices;
 
 interface Text2payContract
 {

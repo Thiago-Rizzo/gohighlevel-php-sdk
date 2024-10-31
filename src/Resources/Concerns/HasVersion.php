@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\Resources\Concerns;
+namespace GoHighLevelSDK\Resources\Concerns;
 
 use DateTime;
-use MusheAbdulHakim\GoHighLevel\Exceptions\InvalidArgumentException;
+use GoHighLevelSDK\Exceptions\InvalidArgumentException;
 
 trait HasVersion
 {

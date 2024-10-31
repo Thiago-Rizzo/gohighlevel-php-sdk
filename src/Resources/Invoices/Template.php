@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\Resources\Invoices;
+namespace GoHighLevelSDK\Resources\Invoices;
 
-use MusheAbdulHakim\GoHighLevel\Contracts\Resources\Invoices\TemplateContract;
-use MusheAbdulHakim\GoHighLevel\Resources\Concerns\Transportable;
-use MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter\Payload;
+use GoHighLevelSDK\Contracts\Resources\Invoices\TemplateContract;
+use GoHighLevelSDK\Resources\Concerns\Transportable;
+use GoHighLevelSDK\ValueObjects\Transporter\Payload;
 
 final class Template implements TemplateContract
 {
@@ -32,8 +32,6 @@ final class Template implements TemplateContract
 
     public function get(string $templateId, string $altId, string $altType)
     {
-        $params['altId'] = $altId;
-        $params['altType'] = $altType;
         $payload = Payload::get("invoices/template/{$templateId}/");
 
         return $this->transporter->requestObject($payload)->data();

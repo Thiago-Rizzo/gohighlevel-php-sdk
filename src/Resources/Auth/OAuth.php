@@ -2,14 +2,17 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\Resources\Auth;
+namespace GoHighLevelSDK\Resources\Auth;
 
-use MusheAbdulHakim\GoHighLevel\Contracts\Auth\OAuthContract;
-use MusheAbdulHakim\GoHighLevel\Enums\Transporter\ContentType;
-use MusheAbdulHakim\GoHighLevel\Enums\Transporter\Method;
-use MusheAbdulHakim\GoHighLevel\Resources\Concerns\Transportable;
-use MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter\Payload;
-use MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter\Response;
+use GoHighLevelSDK\Contracts\Auth\OAuthContract;
+use GoHighLevelSDK\Enums\Transporter\ContentType;
+use GoHighLevelSDK\Enums\Transporter\Method;
+use GoHighLevelSDK\Exceptions\ErrorException;
+use GoHighLevelSDK\Exceptions\TransporterException;
+use GoHighLevelSDK\Exceptions\UnserializableResponse;
+use GoHighLevelSDK\Resources\Concerns\Transportable;
+use GoHighLevelSDK\ValueObjects\Transporter\Payload;
+use GoHighLevelSDK\ValueObjects\Transporter\Response;
 
 final class OAuth implements OAuthContract
 {
@@ -29,9 +32,9 @@ final class OAuth implements OAuthContract
      * @param string $companyId
      * @param string $locationId
      * @return array|string
-     * @throws \MusheAbdulHakim\GoHighLevel\Exceptions\ErrorException
-     * @throws \MusheAbdulHakim\GoHighLevel\Exceptions\TransporterException
-     * @throws \MusheAbdulHakim\GoHighLevel\Exceptions\UnserializableResponse
+     * @throws ErrorException
+     * @throws TransporterException
+     * @throws UnserializableResponse
      */
     public function AcessFromAgency(string $companyId, string $locationId)
     {
@@ -47,9 +50,9 @@ final class OAuth implements OAuthContract
      * @param string $companyId
      * @param array $params
      * @return array|string
-     * @throws \MusheAbdulHakim\GoHighLevel\Exceptions\ErrorException
-     * @throws \MusheAbdulHakim\GoHighLevel\Exceptions\TransporterException
-     * @throws \MusheAbdulHakim\GoHighLevel\Exceptions\UnserializableResponse
+     * @throws ErrorException
+     * @throws TransporterException
+     * @throws UnserializableResponse
      */
     public function appLocation(string $appId, string $companyId, array $params = [])
     {
@@ -65,9 +68,9 @@ final class OAuth implements OAuthContract
      * @param string $companyId
      * @param array $params
      * @return array|string
-     * @throws \MusheAbdulHakim\GoHighLevel\Exceptions\ErrorException
-     * @throws \MusheAbdulHakim\GoHighLevel\Exceptions\TransporterException
-     * @throws \MusheAbdulHakim\GoHighLevel\Exceptions\UnserializableResponse
+     * @throws ErrorException
+     * @throws TransporterException
+     * @throws UnserializableResponse
      */
     public function location(string $appId, string $companyId, array $params = [])
     {

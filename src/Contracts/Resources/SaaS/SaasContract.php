@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\Contracts\Resources\SaaS;
+namespace GoHighLevelSDK\Contracts\Resources\SaaS;
 
-use MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter\Response;
+use GoHighLevelSDK\ValueObjects\Transporter\Response;
 
 /**
  * @see https://highlevel.stoplight.io/docs/integrations/5e0404456de81-saa-s-api

@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel;
+namespace GoHighLevelSDK;
 
 use Closure;
 use Exception;
 use GuzzleHttp\Client as GuzzleClient;
 use Http\Discovery\Psr18Client;
 use Http\Discovery\Psr18ClientDiscovery;
-use MusheAbdulHakim\GoHighLevel\Transporters\HttpTransporter;
-use MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter\ApiKey;
-use MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter\BaseUri;
-use MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter\Headers;
-use MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter\QueryParams;
+use GoHighLevelSDK\Transporters\HttpTransporter;
+use GoHighLevelSDK\ValueObjects\Transporter\ApiKey;
+use GoHighLevelSDK\ValueObjects\Transporter\BaseUri;
+use GoHighLevelSDK\ValueObjects\Transporter\Headers;
+use GoHighLevelSDK\ValueObjects\Transporter\QueryParams;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;

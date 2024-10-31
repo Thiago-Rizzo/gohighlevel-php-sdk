@@ -2,19 +2,20 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\Resources\Contacts;
+namespace GoHighLevelSDK\Resources\Contacts;
 
-use MusheAbdulHakim\GoHighLevel\Contracts\Resources\Contacts\AppointmentContract;
-use MusheAbdulHakim\GoHighLevel\Contracts\Resources\Contacts\CampaignContract;
-use MusheAbdulHakim\GoHighLevel\Contracts\Resources\Contacts\ContactContract;
-use MusheAbdulHakim\GoHighLevel\Contracts\Resources\Contacts\FollowerContract;
-use MusheAbdulHakim\GoHighLevel\Contracts\Resources\Contacts\NoteContract;
-use MusheAbdulHakim\GoHighLevel\Contracts\Resources\Contacts\SearchContract;
-use MusheAbdulHakim\GoHighLevel\Contracts\Resources\Contacts\TagContract;
-use MusheAbdulHakim\GoHighLevel\Contracts\Resources\Contacts\TaskContract;
-use MusheAbdulHakim\GoHighLevel\Contracts\Resources\Contacts\WorkflowContract;
-use MusheAbdulHakim\GoHighLevel\Resources\Concerns\Transportable;
-use MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter\Payload;
+use GoHighLevelSDK\Contracts\Resources\Contacts\AppointmentContract;
+use GoHighLevelSDK\Contracts\Resources\Contacts\CampaignContract;
+use GoHighLevelSDK\Contracts\Resources\Contacts\ContactContract;
+use GoHighLevelSDK\Contracts\Resources\Contacts\FollowerContract;
+use GoHighLevelSDK\Contracts\Resources\Contacts\NoteContract;
+use GoHighLevelSDK\Contracts\Resources\Contacts\SearchContract;
+use GoHighLevelSDK\Contracts\Resources\Contacts\TagContract;
+use GoHighLevelSDK\Contracts\Resources\Contacts\TaskContract;
+use GoHighLevelSDK\Contracts\Resources\Contacts\WorkflowContract;
+use GoHighLevelSDK\Resources\Concerns\Transportable;
+use GoHighLevelSDK\ValueObjects\Transporter\Payload;
+use GoHighLevelSDK\ValueObjects\Transporter\Response;
 
 final class Contact implements ContactContract
 {
@@ -49,7 +50,7 @@ final class Contact implements ContactContract
      *
      * @see https://highlevel.stoplight.io/docs/integrations/28ab84e9522b6-delete-contact
      */
-    public function delete(string $contactId): \MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter\Response
+    public function delete(string $contactId): Response
     {
         $payload = Payload::delete('contacts/', $contactId);
 
@@ -61,7 +62,7 @@ final class Contact implements ContactContract
      *
      * @see https://highlevel.stoplight.io/docs/integrations/f71bbdd88f028-upsert-contact
      */
-    public function upsert(array $params): \MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter\Response
+    public function upsert(array $params): Response
     {
         $payload = Payload::create('contacts/upsert', $params);
 
@@ -87,7 +88,7 @@ final class Contact implements ContactContract
      *
      * @see https://highlevel.stoplight.io/docs/integrations/4c8362223c17b-create-contact
      */
-    public function create(array $params): \MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter\Response
+    public function create(array $params): Response
     {
         $payload = Payload::create('contacts/', $params);
 

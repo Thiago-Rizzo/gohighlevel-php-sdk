@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter;
+namespace GoHighLevelSDK\ValueObjects\Transporter;
 
-use MusheAbdulHakim\GoHighLevel\Contracts\StringableContract;
+use GoHighLevelSDK\Contracts\StringableContract;
 
 /**
  * @internal

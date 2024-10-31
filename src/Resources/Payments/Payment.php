@@ -1,15 +1,15 @@
 <?php
 
-namespace MusheAbdulHakim\GoHighLevel\Resources\Payments;
+namespace GoHighLevelSDK\Resources\Payments;
 
-use MusheAbdulHakim\GoHighLevel\Contracts\Resources\Payments\CustomProviderContract;
-use MusheAbdulHakim\GoHighLevel\Contracts\Resources\Payments\IntegrationContract;
-use MusheAbdulHakim\GoHighLevel\Contracts\Resources\Payments\OrderContract;
-use MusheAbdulHakim\GoHighLevel\Contracts\Resources\Payments\OrderFulfillmentContract;
-use MusheAbdulHakim\GoHighLevel\Contracts\Resources\Payments\PaymentContract;
-use MusheAbdulHakim\GoHighLevel\Contracts\Resources\Payments\SubscriptionContract;
-use MusheAbdulHakim\GoHighLevel\Contracts\Resources\Payments\TransactionContract;
-use MusheAbdulHakim\GoHighLevel\Resources\Concerns\Transportable;
+use GoHighLevelSDK\Contracts\Resources\Payments\CustomProviderContract;
+use GoHighLevelSDK\Contracts\Resources\Payments\IntegrationContract;
+use GoHighLevelSDK\Contracts\Resources\Payments\OrderContract;
+use GoHighLevelSDK\Contracts\Resources\Payments\OrderFulfillmentContract;
+use GoHighLevelSDK\Contracts\Resources\Payments\PaymentContract;
+use GoHighLevelSDK\Contracts\Resources\Payments\SubscriptionContract;
+use GoHighLevelSDK\Contracts\Resources\Payments\TransactionContract;
+use GoHighLevelSDK\Resources\Concerns\Transportable;
 
 class Payment implements PaymentContract
 {

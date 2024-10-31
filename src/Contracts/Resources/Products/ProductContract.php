@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\Contracts\Resources\Products;
+namespace GoHighLevelSDK\Contracts\Resources\Products;
 
 /**
  * @see https://highlevel.stoplight.io/docs/integrations/486b7c90818f4-products-api

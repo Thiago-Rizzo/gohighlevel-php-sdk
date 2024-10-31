@@ -1,10 +1,10 @@
 <?php
 
-namespace MusheAbdulHakim\GoHighLevel\Resources\Payments;
+namespace GoHighLevelSDK\Resources\Payments;
 
-use MusheAbdulHakim\GoHighLevel\Contracts\Resources\Payments\OrderFulfillmentContract;
-use MusheAbdulHakim\GoHighLevel\Resources\Concerns\Transportable;
-use MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter\Payload;
+use GoHighLevelSDK\Contracts\Resources\Payments\OrderFulfillmentContract;
+use GoHighLevelSDK\Resources\Concerns\Transportable;
+use GoHighLevelSDK\ValueObjects\Transporter\Payload;
 
 class OrderFulfillment implements OrderFulfillmentContract
 {

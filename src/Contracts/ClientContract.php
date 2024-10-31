@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\Contracts;
+namespace GoHighLevelSDK\Contracts;
 
-use MusheAbdulHakim\GoHighLevel\Contracts\Resources\BusinessContract;
-use MusheAbdulHakim\GoHighLevel\Contracts\Resources\CompanyContract;
+use GoHighLevelSDK\Contracts\Resources\BusinessContract;
+use GoHighLevelSDK\Contracts\Resources\CompanyContract;
 
 interface ClientContract
 {

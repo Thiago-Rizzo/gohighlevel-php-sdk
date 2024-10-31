@@ -43,7 +43,7 @@ composer test
 ## Usage
 
 ```php
-use \MusheAbdulHakim\GoHighLevel\GoHighLevel;
+use \GoHighLevelSDK\GoHighLevel;
 
 //Initialize the client
 $client = GoHighLevel::client($access_token, '2021-07-28');

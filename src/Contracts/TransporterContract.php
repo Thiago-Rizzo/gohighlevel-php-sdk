@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\Contracts;
+namespace GoHighLevelSDK\Contracts;
 
-use MusheAbdulHakim\GoHighLevel\Exceptions\ErrorException;
-use MusheAbdulHakim\GoHighLevel\Exceptions\TransporterException;
-use MusheAbdulHakim\GoHighLevel\Exceptions\UnserializableResponse;
-use MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter\Payload;
-use MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter\Response;
+use GoHighLevelSDK\Exceptions\ErrorException;
+use GoHighLevelSDK\Exceptions\TransporterException;
+use GoHighLevelSDK\Exceptions\UnserializableResponse;
+use GoHighLevelSDK\ValueObjects\Transporter\Payload;
+use GoHighLevelSDK\ValueObjects\Transporter\Response;
 use Psr\Http\Message\ResponseInterface;
 
 interface TransporterContract

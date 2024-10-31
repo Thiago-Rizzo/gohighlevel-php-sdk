@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\Contracts\Resources\Locations;
+namespace GoHighLevelSDK\Contracts\Resources\Locations;
 
 interface SearchContract
 {

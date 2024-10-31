@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Src\Resources\SocialPlanner;
+namespace GoHighLevelSDK\Resources\SocialPlanner;
 
-use MusheAbdulHakim\GoHighLevel\Contracts\Resources\SocialPlanner\Google as GoogleSocialPlanner;
-use MusheAbdulHakim\GoHighLevel\Resources\Concerns\Transportable;
-use MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter\Payload;
+use GoHighLevelSDK\Contracts\Resources\SocialPlanner\Google as GoogleSocialPlanner;
+use GoHighLevelSDK\Resources\Concerns\Transportable;
+use GoHighLevelSDK\ValueObjects\Transporter\Payload;
 
 class Google implements GoogleSocialPlanner
 {

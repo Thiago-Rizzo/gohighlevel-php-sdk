@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\Contracts\Resources\TriggerLinks;
+namespace GoHighLevelSDK\Contracts\Resources\TriggerLinks;
 
 /**
  *links API

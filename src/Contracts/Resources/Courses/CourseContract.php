@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\Contracts\Resources\Courses;
+namespace GoHighLevelSDK\Contracts\Resources\Courses;
 
 interface CourseContract
 {

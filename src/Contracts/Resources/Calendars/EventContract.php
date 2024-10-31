@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\Contracts\Resources\Calendars;
+namespace GoHighLevelSDK\Contracts\Resources\Calendars;
 
 interface EventContract
 {

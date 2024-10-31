@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\Contracts\Resources\Contacts;
+namespace GoHighLevelSDK\Contracts\Resources\Contacts;
 
 /**
  * Contacts Api

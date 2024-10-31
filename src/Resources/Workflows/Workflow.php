@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\Resources\Workflows;
+namespace GoHighLevelSDK\Resources\Workflows;
 
-use MusheAbdulHakim\GoHighLevel\Contracts\Resources\Workflows\WorkflowsContract;
-use MusheAbdulHakim\GoHighLevel\Resources\Concerns\Transportable;
-use MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter\Payload;
+use GoHighLevelSDK\Contracts\Resources\Workflows\WorkflowsContract;
+use GoHighLevelSDK\Resources\Concerns\Transportable;
+use GoHighLevelSDK\ValueObjects\Transporter\Payload;
 
 class Workflow implements WorkflowsContract
 {

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter;
+namespace GoHighLevelSDK\ValueObjects\Transporter;
 
-use MusheAbdulHakim\GoHighLevel\Enums\Transporter\ContentType;
+use GoHighLevelSDK\Enums\Transporter\ContentType;
 
 /**
  * @internal

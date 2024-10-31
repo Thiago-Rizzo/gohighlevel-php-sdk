@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter;
+namespace GoHighLevelSDK\ValueObjects\Transporter;
 
 use Http\Discovery\Psr17Factory;
 use Http\Message\MultipartStream\MultipartStreamBuilder;
 use JsonException;
-use MusheAbdulHakim\GoHighLevel\Enums\Transporter\ContentType;
-use MusheAbdulHakim\GoHighLevel\Enums\Transporter\Method;
-use MusheAbdulHakim\GoHighLevel\ValueObjects\ResourceUri;
+use GoHighLevelSDK\Enums\Transporter\ContentType;
+use GoHighLevelSDK\Enums\Transporter\Method;
+use GoHighLevelSDK\ValueObjects\ResourceUri;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\StreamInterface;
 

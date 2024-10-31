@@ -8,7 +8,7 @@ include 'vendor/autoload.php';
 $version = '2021-04-15';
 $access_token = '';
 
-$ghl = \MusheAbdulHakim\GoHighLevel\GoHighLevel::client($access_token, $version);
+$ghl = \GoHighLevelSDK\GoHighLevel::client($access_token, $version);
 
 ```
 
@@ -52,7 +52,7 @@ $business = $ghl->businesses()->create($name, $locationId, [
 ### Response
 
 ```php
- MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter\Response {#36 ▼
+ GoHighLevelSDK\ValueObjects\Transporter\Response {#36 ▼
   -data: array:3 [▼
     "success" => true
     "businesses" => []

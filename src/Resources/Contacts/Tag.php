@@ -2,11 +2,12 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\Resources\Contacts;
+namespace GoHighLevelSDK\Resources\Contacts;
 
-use MusheAbdulHakim\GoHighLevel\Contracts\Resources\Contacts\TagContract;
-use MusheAbdulHakim\GoHighLevel\Resources\Concerns\Transportable;
-use MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter\Payload;
+use GoHighLevelSDK\Contracts\Resources\Contacts\TagContract;
+use GoHighLevelSDK\Resources\Concerns\Transportable;
+use GoHighLevelSDK\ValueObjects\Transporter\Payload;
+use GoHighLevelSDK\ValueObjects\Transporter\Response;
 
 final class Tag implements TagContract
 {
@@ -27,7 +28,7 @@ final class Tag implements TagContract
     /**
      * {@inheritDoc}
      */
-    public function remove(string $contactId): \MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter\Response
+    public function remove(string $contactId): Response
     {
         $payload = Payload::deleteFromUri("contacts/{$contactId}/tags");
 

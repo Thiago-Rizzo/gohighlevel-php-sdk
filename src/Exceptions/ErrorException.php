@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\Exceptions;
+namespace GoHighLevelSDK\Exceptions;
 
 use Exception;
 
 final class ErrorException extends Exception
 {
-    private array $contents;
+    private array $contents = [];
 
     /**
      * Creates a new Exception instance.

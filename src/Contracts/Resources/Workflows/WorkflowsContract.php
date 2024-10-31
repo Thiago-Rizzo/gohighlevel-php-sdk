@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\Contracts\Resources\Workflows;
+namespace GoHighLevelSDK\Contracts\Resources\Workflows;
 
 interface WorkflowsContract
 {

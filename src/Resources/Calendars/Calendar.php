@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\Resources\Calendars;
+namespace GoHighLevelSDK\Resources\Calendars;
 
-use MusheAbdulHakim\GoHighLevel\Contracts\Resources\Calendars\CalendarContract;
-use MusheAbdulHakim\GoHighLevel\Contracts\Resources\Calendars\CalendarResourceContract;
-use MusheAbdulHakim\GoHighLevel\Contracts\Resources\Calendars\EventContract;
-use MusheAbdulHakim\GoHighLevel\Contracts\Resources\Calendars\GroupContract;
-use MusheAbdulHakim\GoHighLevel\Resources\Concerns\Transportable;
-use MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter\Payload;
+use GoHighLevelSDK\Contracts\Resources\Calendars\CalendarContract;
+use GoHighLevelSDK\Contracts\Resources\Calendars\CalendarResourceContract;
+use GoHighLevelSDK\Contracts\Resources\Calendars\EventContract;
+use GoHighLevelSDK\Contracts\Resources\Calendars\GroupContract;
+use GoHighLevelSDK\Resources\Concerns\Transportable;
+use GoHighLevelSDK\ValueObjects\Transporter\Payload;
 
 final class Calendar implements CalendarContract
 {

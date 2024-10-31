@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\Contracts\Resources\Users;
+namespace GoHighLevelSDK\Contracts\Resources\Users;
 
 interface UsersContract
 {

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\Contracts\Resources;
+namespace GoHighLevelSDK\Contracts\Resources;
 
-use MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter\Response;
+use GoHighLevelSDK\ValueObjects\Transporter\Response;
 
 interface BusinessContract
 {

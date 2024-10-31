@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\Contracts\Resources\Payments;
+namespace GoHighLevelSDK\Contracts\Resources\Payments;
 
 interface IntegrationContract
 {

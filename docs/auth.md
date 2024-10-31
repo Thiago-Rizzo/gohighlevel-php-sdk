@@ -19,7 +19,7 @@ echo header("Location: $url");
 ## [Get Access Token](https://highlevel.stoplight.io/docs/integrations/00d0c0ecaa369-get-access-token)
 
 ```php
-$ghl_access = \MusheAbdulHakim\GoHighLevel\GoHighLevel::getAccessToken('https://services.leadconnectorhq.com/oauth/token', 'application/x-www-form-urlencoded', [
+$ghl_access = \GoHighLevelSDK\GoHighLevel::getAccessToken('https://services.leadconnectorhq.com/oauth/token', 'application/x-www-form-urlencoded', [
     'client_id' => $client_id,
     'client_secret' => $client_secret,
     'grant_type' => 'authorization_code',
@@ -38,7 +38,7 @@ $client->oAuth()->AcessFromAgency($companyId, $locationId)
 ## [Get Location Where App is installed](https://highlevel.stoplight.io/docs/integrations/aeed19d08490e-get-location-where-app-is-installed)
 
 ```php
-$client = \MusheAbdulHakim\GoHighLevel\GoHighLevel::client($key, '2021-07-28');
+$client = \GoHighLevelSDK\GoHighLevel::client($key, '2021-07-28');
 $location = $client->oAuth()->location($appId, $companyId)
 ```
 

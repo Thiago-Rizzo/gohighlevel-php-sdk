@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\Contracts;
+namespace GoHighLevelSDK\Contracts;
 
 use ArrayAccess;
 

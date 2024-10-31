@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel;
+namespace GoHighLevelSDK;
 
 use Http\Discovery\Psr18ClientDiscovery;
 
@@ -32,7 +32,7 @@ final class GoHighLevel
             ],
         ]);
 
-        return json_decode((string) $response->getBody()->getContents(), true);
+        return json_decode((string)$response->getBody()->getContents(), true);
     }
 
     /**

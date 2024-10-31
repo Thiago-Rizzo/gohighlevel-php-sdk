@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\Resources\Concerns;
+namespace GoHighLevelSDK\Resources\Concerns;
 
-use MusheAbdulHakim\GoHighLevel\Contracts\TransporterContract;
+use GoHighLevelSDK\Contracts\TransporterContract;
 
 trait Transportable
 {

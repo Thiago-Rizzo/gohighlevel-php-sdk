@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\Contracts\Resources\Forms;
+namespace GoHighLevelSDK\Contracts\Resources\Forms;
 
 /**
  * Forms Api

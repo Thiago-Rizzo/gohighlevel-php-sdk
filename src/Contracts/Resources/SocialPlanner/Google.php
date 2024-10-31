@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\Contracts\Resources\SocialPlanner;
+namespace GoHighLevelSDK\Contracts\Resources\SocialPlanner;
 
 interface Google
 {

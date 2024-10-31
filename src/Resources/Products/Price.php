@@ -1,10 +1,10 @@
 <?php
 
-namespace MusheAbdulHakim\GoHighLevel\Resources\Products;
+namespace GoHighLevelSDK\Resources\Products;
 
-use MusheAbdulHakim\GoHighLevel\Contracts\Resources\Products\PriceContract;
-use MusheAbdulHakim\GoHighLevel\Resources\Concerns\Transportable;
-use MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter\Payload;
+use GoHighLevelSDK\Contracts\Resources\Products\PriceContract;
+use GoHighLevelSDK\Resources\Concerns\Transportable;
+use GoHighLevelSDK\ValueObjects\Transporter\Payload;
 
 class Price implements PriceContract
 {

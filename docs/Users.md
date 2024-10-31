@@ -3,7 +3,7 @@
 
 ### Create User
 ```php
-use \MusheAbdulHakim\GoHighLevel\GoHighLevel;
+use \GoHighLevelSDK\GoHighLevel;
 
 
 $client = GoHighLevel::client($access_token,'2021-07-28');
@@ -65,7 +65,7 @@ $user = $client->user()->create($companyId,[
 ### [Update User](https://highlevel.stoplight.io/docs/integrations/52e75431abf04-update-user)
 
 ```php
-use \MusheAbdulHakim\GoHighLevel\GoHighLevel;
+use \GoHighLevelSDK\GoHighLevel;
 
 
 $client = GoHighLevel::client($access_token,'2021-07-28');
@@ -78,7 +78,7 @@ $client->user()->update($userId, [
 ### [Delete User](https://highlevel.stoplight.io/docs/integrations/c0ec81b013379-delete-user) 
 
 ```php
-use \MusheAbdulHakim\GoHighLevel\GoHighLevel;
+use \GoHighLevelSDK\GoHighLevel;
 
 
 $client = GoHighLevel::client($access_token,'2021-07-28');

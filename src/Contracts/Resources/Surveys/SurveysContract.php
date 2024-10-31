@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\Contracts\Resources\Surveys;
+namespace GoHighLevelSDK\Contracts\Resources\Surveys;
 
 interface SurveysContract
 {

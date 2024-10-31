@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\Contracts\Resources\Opportunities;
+namespace GoHighLevelSDK\Contracts\Resources\Opportunities;
 
 interface FollowerContract
 {

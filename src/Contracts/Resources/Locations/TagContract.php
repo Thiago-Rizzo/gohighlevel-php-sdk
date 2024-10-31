@@ -1,6 +1,6 @@
 <?php
 
-namespace MusheAbdulHakim\GoHighLevel\Contracts\Resources\Locations;
+namespace GoHighLevelSDK\Contracts\Resources\Locations;
 
 interface TagContract
 {

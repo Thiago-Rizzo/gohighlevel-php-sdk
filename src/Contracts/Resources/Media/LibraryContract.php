@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\Contracts\Resources\Media;
+namespace GoHighLevelSDK\Contracts\Resources\Media;
 
 interface LibraryContract
 {

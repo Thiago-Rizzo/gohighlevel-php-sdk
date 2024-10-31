@@ -2,16 +2,17 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\Resources;
+namespace GoHighLevelSDK\Resources;
 
-use MusheAbdulHakim\GoHighLevel\Contracts\Resources\CompanyContract;
-use MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter\Payload;
+use GoHighLevelSDK\Contracts\Resources\CompanyContract;
+use GoHighLevelSDK\ValueObjects\Transporter\Payload;
+use GoHighLevelSDK\ValueObjects\Transporter\Response;
 
 final class Company implements CompanyContract
 {
     use Concerns\Transportable;
 
-    public function get(string $companyId): \MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter\Response
+    public function get(string $companyId): Response
     {
         $payload = Payload::get("companies/{$companyId}");
 

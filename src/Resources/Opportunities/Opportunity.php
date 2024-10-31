@@ -1,11 +1,11 @@
 <?php
 
-namespace MusheAbdulHakim\GoHighLevel\Resources\Opportunities;
+namespace GoHighLevelSDK\Resources\Opportunities;
 
-use MusheAbdulHakim\GoHighLevel\Contracts\Resources\Opportunities\FollowerContract;
-use MusheAbdulHakim\GoHighLevel\Contracts\Resources\Opportunities\OpportunityContract;
-use MusheAbdulHakim\GoHighLevel\Resources\Concerns\Transportable;
-use MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter\Payload;
+use GoHighLevelSDK\Contracts\Resources\Opportunities\FollowerContract;
+use GoHighLevelSDK\Contracts\Resources\Opportunities\OpportunityContract;
+use GoHighLevelSDK\Resources\Concerns\Transportable;
+use GoHighLevelSDK\ValueObjects\Transporter\Payload;
 
 class Opportunity implements OpportunityContract
 {

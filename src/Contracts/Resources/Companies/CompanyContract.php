@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\Contracts\Resources\Companies;
+namespace GoHighLevelSDK\Contracts\Resources\Companies;
 
 interface CompanyContract
 {

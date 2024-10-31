@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace MusheAbdulHakim\GoHighLevel\Resources\Funnels;
+namespace GoHighLevelSDK\Resources\Funnels;
 
-use MusheAbdulHakim\GoHighLevel\Contracts\Resources\Funnels\FunnelContract;
-use MusheAbdulHakim\GoHighLevel\Contracts\Resources\Funnels\RedirectContract;
-use MusheAbdulHakim\GoHighLevel\Resources\Concerns\Transportable;
-use MusheAbdulHakim\GoHighLevel\ValueObjects\Transporter\Payload;
+use GoHighLevelSDK\Contracts\Resources\Funnels\FunnelContract;
+use GoHighLevelSDK\Contracts\Resources\Funnels\RedirectContract;
+use GoHighLevelSDK\Resources\Concerns\Transportable;
+use GoHighLevelSDK\ValueObjects\Transporter\Payload;
 
 final class Funnel implements FunnelContract
 {
