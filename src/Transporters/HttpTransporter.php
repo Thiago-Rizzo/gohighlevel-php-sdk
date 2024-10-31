@@ -21,7 +21,6 @@ use GoHighLevelSDK\ValueObjects\Transporter\Response;
 use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\ResponseInterface;
-use Throwable;
 
 /**
  * @internal
@@ -87,7 +86,7 @@ final class HttpTransporter implements TransporterContract
         try {
             /** @var array{error?: array{message: string, type: string, code: string}} $data */
             $data = json_decode($contents, true, JSON_THROW_ON_ERROR);
-        } catch (Throwable $jsonException) {
+        } catch (JsonException $jsonException) {
             throw new UnserializableResponse($jsonException);
         }
 
@@ -128,7 +127,7 @@ final class HttpTransporter implements TransporterContract
     {
         try {
             return $callable();
-        } catch (Throwable $clientException) {
+        } catch (ClientExceptionInterface $clientException) {
             if ($clientException instanceof ClientException) {
                 $this->throwIfJsonError($clientException->getResponse(), $clientException->getResponse()->getBody()->getContents());
             }
@@ -165,7 +164,7 @@ final class HttpTransporter implements TransporterContract
             if (isset($response['error'])) {
                 throw new ErrorException($response);
             }
-        } catch (Throwable $jsonException) {
+        } catch (JsonException $jsonException) {
             throw new UnserializableResponse($jsonException);
         }
     }
