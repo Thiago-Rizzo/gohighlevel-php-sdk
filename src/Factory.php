@@ -23,12 +23,12 @@ final class Factory
     /**
      * The API key for the requests.
      */
-    private ?string $apiKey = null;
+    private string $apiKey = '';
 
     /**
      * The API Version.
      */
-    private ?string $apiVersion = null;
+    private string $apiVersion = '2021-04-15';
 
     /**
      * The HTTP client for the requests.
@@ -71,9 +71,9 @@ final class Factory
      *
      * @return $this
      */
-    public function withVersion(?string $apiVersion): self
+    public function withVersion(string $apiVersion): self
     {
-        $this->apiVersion = trim((string) $apiVersion);
+        $this->apiVersion = trim($apiVersion);
 
         return $this;
     }
@@ -145,16 +145,16 @@ final class Factory
      */
     private function makeStreamHandler(ClientInterface $client): Closure
     {
-        if (! is_null($this->streamHandler)) {
+        if (!is_null($this->streamHandler)) {
             return $this->streamHandler;
         }
 
         if ($client instanceof GuzzleClient) {
-            return fn (RequestInterface $request): ResponseInterface => $client->send($request, ['stream' => true]);
+            return fn(RequestInterface $request): ResponseInterface => $client->send($request, ['stream' => true]);
         }
 
         if ($client instanceof Psr18Client) {
-            return fn (RequestInterface $request): ResponseInterface => $client->sendRequest($request);
+            return fn(RequestInterface $request): ResponseInterface => $client->sendRequest($request);
         }
 
         return function (RequestInterface $_): void {
@@ -164,14 +164,9 @@ final class Factory
 
     public function make(): Client
     {
-        $headers = Headers::create();
-        if ($this->apiKey !== null) {
-            $headers = Headers::withAuthorization(ApiKey::from($this->apiKey));
-        }
-
-        if ($this->apiVersion !== null) {
-            $headers = $headers->withApiVersion($this->apiVersion);
-        }
+        $headers = Headers::create()
+            ->withApiVersion($this->apiVersion)
+            ->withAuthorization(ApiKey::from($this->apiKey));
 
         foreach ($this->headers as $name => $value) {
             $headers = $headers->withCustomHeader($name, $value);

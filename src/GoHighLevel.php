@@ -46,16 +46,11 @@ final class GoHighLevel
             ->withApiKey($apiKey);
     }
 
-    public static function client(string $apiKey, string $version = ''): Client
+    public static function client(string $apiKey, string $version = '2021-04-15'): Client
     {
-        $apiVersion = '';
-        if ($version !== '') {
-            $apiVersion = $version;
-        }
-
         return self::factory()
             ->withApiKey($apiKey)
-            ->withVersion($apiVersion)
+            ->withVersion($version)
             ->make();
     }
 
