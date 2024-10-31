@@ -92,7 +92,7 @@ final class Contact implements ContactContract
     {
         $payload = Payload::create('contacts/', $params);
 
-        return $this->transporter->requestObject($payload)->get('contact');
+        return $this->transporter->requestObject($payload)->data();
     }
 
     /**
