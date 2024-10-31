@@ -88,11 +88,11 @@ final class Contact implements ContactContract
      *
      * @see https://highlevel.stoplight.io/docs/integrations/4c8362223c17b-create-contact
      */
-    public function create(array $params): Response
+    public function create(array $params)
     {
         $payload = Payload::create('contacts/', $params);
 
-        return $this->transporter->requestObject($payload);
+        return $this->transporter->requestObject($payload)->get('contact');
     }
 
     /**
